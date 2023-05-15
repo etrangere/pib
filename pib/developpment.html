@@ -12,9 +12,18 @@
     </script>
     <title>Developpement</title>
 </head>
-<header>Developpement</header>
+
 <body>
 
+
+<div>
+    <label for="step6">Step 6:</label>
+    <input type="checkbox" id="step6" name="step6" onchange="updateProgressBar()">
+</div>
+
+
+
+<h1>Developpement</h1>
 <!-- Create a container div for the textareas and the "Update" button -->
 <div id="textarea-container"> 
     <!-- Create the "Update" button -->
@@ -34,10 +43,7 @@
     <textarea   rows="5" cols="110"></textarea>
     </p>
      
-    <div>
-        <label for="step6">Step 6:</label>
-        <input type="checkbox" id="step6" name="step6" onchange="updateProgressBar()">
-    </div>
+
 
 
 </div>    
@@ -46,14 +52,16 @@
 
 
 <script>
+
+
   const textareaContainer = document.getElementById("textarea-container");
   const textareas = textareaContainer.getElementsByTagName("textarea");
   const checkboxes = textareaContainer.querySelectorAll("input[type='checkbox']");
-  
+
   let formValues = {};
-  
+
   let counter = 0; // initialize counter variable
-  
+
   for (let i = 0; i < textareas.length + checkboxes.length; i++) {
     if (i < textareas.length) {
       const textarea = textareas[i];

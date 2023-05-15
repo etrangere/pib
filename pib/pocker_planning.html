@@ -12,13 +12,12 @@
       </script>
     <title>Pocker Planning</title>
 </head>
-<header>Pocker Planning</header>
+
 <body>
 
-    <div id="textarea-container"> 
-        <label for="Pocker Planning">Validate</label><input id="PockerPlanning" type="checkbox" ><label for="Pocker Planning">Ignore</label><input id="PockerPlanning" type="checkbox" >Pocker Planning
-    </div>
-
+<div><label for="step4">Step 4:</label>
+    <input type="checkbox" id="step4" name="step4" onchange="updateProgressBar()"></div>
+<h1>Pocker Planning</h1>
     <p>Le planning poker est une façon ludique de produire des estimations sur l'effort de développement de fonctionnalités. Cette pratique est surtout utilisée en informatique, en eXtreme Programming (XP), en Scrum et dans les méthodes agiles en général pour évaluer les scénarios utilisateurs (user stories) du carnet de produit (product backlog). La méthode a été décrite pour la première fois par James Grenning1,2 en 2002 et popularisée par Mike Cohn dans le livre Agile Estimating and Planning3.
 
         Utilisation
@@ -29,8 +28,7 @@
         Les points de récits permettent d'obtenir une véritable mesure relative de l'effort : les scénarios sont comparés entre eux. L'équivalent en jours-hommes est propre à chacun, selon ses compétences, son expérience et sa connaissance du domaine. L'avantage d'utiliser des points réside surtout dans le fait que l'échelle utilisée restera stable tout au long du projet. Peu importe la vitesse (vélocité) à laquelle l'équipe de développement accomplira ces tâches, nul besoin de réviser les estimations : c'est le rapport entre le temps réel et les points qui évoluera.
         
         Les avantages de l'estimation en "journées idéales" (ou heures idéale en cas de fine granularité des tâches) sont parfaitement identiques à ceux des points de récits. Par contre, l'estimation en journées idéales est plus aisée à concrétiser dans l'esprit des acteurs qui sont généralement plus à l'aise avec la notion de "journée" qu'avec un "point de récit" de taille variable pour chaque projet, qui peut aussi bien représenter quelques heures que quelques jours, et qui devra devenir une unité de référence.</p>
-        <div><label for="step4">Step 4:</label>
-            <input type="checkbox" id="step4" name="step4" onchange="updateProgressBar()"></div>
+
     </body>
 </html>
 <script>
