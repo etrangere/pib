@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const prefix = window.location.pathname.replace(/\/{2,}/g, '/');
+        const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
+        const baseUrl = `http://localhost${currentPath}`;
+        //alert(baseUrl); 
+      </script>
+    <title>Sprint Planning</title>
+</head>
+<header>Sprint Planning</header>
+<body>
+    <div id="textarea-container"> 
+        <label for="Sprint Planning">Validate</label><input id="SprintPlanning" type="checkbox" ><label for="Sprint Planning">Ignore</label><input id="SprintPlanning" type="checkbox" >Sprint Planning
+    </div>
+
+    <p>Pour conclure, le sprint planning est une cérémonie agile essentielle de l’équipe scrum qui a pour but de déterminer le contenu et l’organisation du prochain sprint en vue d’atteindre un objectif commun à tous et générer de la valeur pour l’utilisateur. Dans la pratique, il demande surtout un travail de préparation pour être efficace mais cette cérémonie n’est pas aussi figée que ce que l’on pourrait penser. Ainsi, il faut plutôt voir le sprint planning comme une partie d’un outil permettant de délivrer de la valeur et cet outil est à faire évoluer en fonction de l’expérience de ton équipe.</p>
+    <div>
+        <label for="step3">Step 3:</label>
+    <input type="checkbox" id="step3" name="step3" onchange="updateProgressBar()">
+    </div>
+</body>
+</html>
+<script>
+    const textareaContainer = document.getElementById("textarea-container");
+    const textareas = textareaContainer.getElementsByTagName("textarea");
+    const checkboxes = textareaContainer.querySelectorAll("input[type='checkbox']");
+    
+    let formValues = {};
+    
+    let counter = 0; // initialize counter variable
+    
+    for (let i = 0; i < textareas.length + checkboxes.length; i++) {
+      if (i < textareas.length) {
+        const textarea = textareas[i];
+        const id = prefix + (counter + 1);
+        textarea.id = id;
+        formValues[id] = textarea.value;
+        textarea.addEventListener("input", (event) => {
+          formValues[id] = event.target.value;
+          localStorage.setItem("formValues", JSON.stringify(formValues));
+        });
+        counter++; // increment counter variable
+      } else {
+        const checkbox = checkboxes[i - textareas.length];
+        const id = prefix + (counter + 1);
+        checkbox.id = id;
+        formValues[id] = checkbox.checked;
+        checkbox.addEventListener("change", (event) => {
+          formValues[id] = event.target.checked;
+          localStorage.setItem("formValues", JSON.stringify(formValues));
+        });
+        counter++; // increment counter variable
+      }
+    }
+    
+    const savedFormValues = localStorage.getItem("formValues");
+    
+    if (savedFormValues) {
+      formValues = JSON.parse(savedFormValues);
+      for (const id in formValues) {
+        if (formValues.hasOwnProperty(id)) {
+          const element = document.getElementById(id);
+          if (element) {
+            if (element.tagName === "TEXTAREA") {
+              element.value = formValues[id];
+            } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+              element.checked = formValues[id];
+            }
+          } else {
+            console.warn(`Element with id "${id}" not found on page`);
+          }
+        }
+      }
+    }
+    
+    const updateButton = document.getElementById("update-button-all");
+    updateButton.addEventListener("click", () => {
+      for (let i = 0; i < textareas.length + checkboxes.length; i++) {
+        const id = prefix + (i + 1);
+        const element = document.getElementById(id);
+        if (element) {
+          if (element.tagName === "TEXTAREA") {
+            formValues[id] = element.value;
+          } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+            formValues[id] = element.checked;
+          }
+        } else {
+          console.warn(`Element with id "${id}" not found on page`);
+        }
+      }
+      localStorage.setItem("formValues", JSON.stringify(formValues));
+      alert("Values updated!");
+    });
+    
+    </script>

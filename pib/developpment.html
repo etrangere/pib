@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      const prefix = window.location.pathname.replace(/\/{2,}/g, '/');
+      const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
+      const baseUrl = `http://localhost${currentPath}`;
+     // alert(prefix); 
+    </script>
+    <title>Developpement</title>
+</head>
+<header>Developpement</header>
+<body>
+
+<!-- Create a container div for the textareas and the "Update" button -->
+<div id="textarea-container"> 
+    <!-- Create the "Update" button -->
+    <!-- <button id="update-button-all" >Update</button> -->
+
+
+    <p><ul>
+        <li><label for="conception">Validate</label><input id="conception" type="checkbox" ><label for="conception">Ignore</label><input id="conceptioni" type="checkbox" >Conseption MCD/MLD/UML</li>
+        <li><label for="crud">Validate</label><input id="crud" type="checkbox" ><label for="crudi">Ignore</label><input id="crudi" type="checkbox" >CRUD/BDD</li>
+        <li><label for="front">Validate</label><input id="front" type="checkbox" ><label for="fronti">Ignore</label><input id="fronti" type="checkbox" >FRONT-END</li>
+        <li><label for="back">Validate</label><input id="back" type="checkbox" ><label for="backi">Ignore</label><input id="backi" type="checkbox" >BACK-END</li>
+        <li><label for="test">Validate</label><input id="test" type="checkbox" ><label for="testi">Ignore</label><input id="testi" type="checkbox" >TESTING</li>
+        <li><label for="correction">Validate</label><input id="correction" type="checkbox" ><label for="correctioni">Ignore</label><input id="correctioni" type="checkbox" >Correction/Code Refactor</li>
+        <li><label for="documentation">Validate</label><input id="documentation" type="checkbox" ><label for="documentationi">Ignore</label><input id="documentationi" type="checkbox" >Documentation/Update</li>
+    </ul>
+    
+    <textarea   rows="5" cols="110"></textarea>
+    </p>
+     
+    <div>
+        <label for="step6">Step 6:</label>
+        <input type="checkbox" id="step6" name="step6" onchange="updateProgressBar()">
+    </div>
+
+
+</div>    
+</body>
+</html>
+
+
+<script>
+  const textareaContainer = document.getElementById("textarea-container");
+  const textareas = textareaContainer.getElementsByTagName("textarea");
+  const checkboxes = textareaContainer.querySelectorAll("input[type='checkbox']");
+  
+  let formValues = {};
+  
+  let counter = 0; // initialize counter variable
+  
+  for (let i = 0; i < textareas.length + checkboxes.length; i++) {
+    if (i < textareas.length) {
+      const textarea = textareas[i];
+      const id = prefix + (counter + 1);
+      textarea.id = id;
+      formValues[id] = textarea.value;
+      textarea.addEventListener("input", (event) => {
+        formValues[id] = event.target.value;
+        localStorage.setItem("formValues", JSON.stringify(formValues));
+      });
+      counter++; // increment counter variable
+    } else {
+      const checkbox = checkboxes[i - textareas.length];
+      const id = prefix + (counter + 1);
+      checkbox.id = id;
+      formValues[id] = checkbox.checked;
+      checkbox.addEventListener("change", (event) => {
+        formValues[id] = event.target.checked;
+        localStorage.setItem("formValues", JSON.stringify(formValues));
+      });
+      counter++; // increment counter variable
+    }
+  }
+  
+  const savedFormValues = localStorage.getItem("formValues");
+  
+  if (savedFormValues) {
+    formValues = JSON.parse(savedFormValues);
+    for (const id in formValues) {
+      if (formValues.hasOwnProperty(id)) {
+        const element = document.getElementById(id);
+        if (element) {
+          if (element.tagName === "TEXTAREA") {
+            element.value = formValues[id];
+          } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+            element.checked = formValues[id];
+          }
+        } else {
+          console.warn(`Element with id "${id}" not found on page`);
+        }
+      }
+    }
+  }
+  
+  const updateButton = document.getElementById("update-button-all");
+  updateButton.addEventListener("click", () => {
+    for (let i = 0; i < textareas.length + checkboxes.length; i++) {
+      const id = prefix + (i + 1);
+      const element = document.getElementById(id);
+      if (element) {
+        if (element.tagName === "TEXTAREA") {
+          formValues[id] = element.value;
+        } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+          formValues[id] = element.checked;
+        }
+      } else {
+        console.warn(`Element with id "${id}" not found on page`);
+      }
+    }
+    localStorage.setItem("formValues", JSON.stringify(formValues));
+    alert("Values updated!");
+  });
+  
+  </script>

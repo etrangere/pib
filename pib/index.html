@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<header>
+	<title>Navbar with View</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+		const prefixraw = window.location.pathname;
+		const prefix = prefixraw.slice(0, -1);
+		const currentPath = window.location.pathname;
+		const baseUrl = `http://localhost${currentPath}`;
+		//alert(baseUrl); 
+	</script>
+	<script>
+		const script = document.createElement('script');
+		script.src = 'https://api.trello.com/1/boards/BOARD_ID?fields=all&lists=all&cards=all&members=all&key=API_KEY&token=TOKEN';
+		script.addEventListener('load', () => {
+			// Your code to process the board data goes here
+			console.log(board);
+		});
+		document.body.appendChild(script);
+	</script>
+	<script> 
+	  fetch('https://gitlab.com/idp4020607/project-information-board/:id/access_requests', {
+		method:'GET',
+			headers: {
+				'Authorization': 'Basic'  + btoa('gugo2828@gmail.com:Smdilia2012@'),
+				'PRIVATE-TOKEN': 'glpat-koVmNYNcgZbMwWtxRdth',
+				
+				'accept': 'application/json'
+			}
+		});
+	 </script>
+</header>
+<body>
+	<nav>
+			<a href=baseUrl+"/home.html" id="btnlogo" target="right"><img  src="./img/logo.png"></a>
+			<!--dropdown-->
+			<select class="projectselect" name="pets" id="pet-select">
+				<option value="">--Please choose an option--</option>
+				<option value="dog">Dog</option>
+				<option value="cat">Cat</option>
+				<option value="hamster">Hamster</option>
+				<option value="parrot">Parrot</option>
+				<option value="spider">Spider</option>
+				<option value="goldfish">Goldfish</option>
+			</select>
+
+			  <!--dropdown-->
+			<div>     
+				<!-- Trigger/Open The Modal -->	
+				<button >Login</button>
+			</div>
+	</nav>	
+	<div class="progress-container">
+		<div class="progress-bar" id="myBar"></div>
+	    </div>	
+    <!--create button set static-->
+    <div id="button-container-etape" class="button-container-for-etape">
+		<div class="methodflag">
+			<script> 
+			if(localStorage.getItem("val")==null){
+				document.write("Method");
+			}else{
+				document.write(localStorage.getItem("val"));
+			}
+			</script>
+			</div>
+	</div>
+	
+	<div class="dropdown">  
+		<!-- config button -->
+	<button id="myBtn" class="btnconfig">Configuration</button>
+
+		<!--create button with name and url-->
+		<div id="button-container"></div>
+		
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				
+				<!--create button with name and url-->
+			<h1>Add etape buttons set acording to the method</h1>
+	
+			    <form>
+					<select id="method" name="method">
+						<option value="Scrum">Scrum</option>
+						<option value="Kanban">Kanban</option>
+					</select><br>
+					<input type="button" id="btnselect" value="Create Button Set" onclick="createButtonset()">
+				</form>
+				<div id="button-container-etape"></div>
+				<div class="remove-container-etape" id="remove-container-etape"></div>
+
+                <hr>
+            <h1>Add resource button</h1>
+				<form>
+					<label for="url">URL:</label>
+					<input type="text" id="url" name="url"><br>
+					<label for="text">Button Text:</label>
+					<input type="text" id="text" name="text" maxlength="26"><br>
+					<label for="color">Select color by theme:</label>
+					<select id="color" name="color">
+						<option value="#850606">Red  Java</option>
+						<option value="#3CB371">Green  PHP</option>
+						<option value="#B8860B">Marron  N/A</option>
+						<option value="#00008B">Blue ORM/DB</option>
+						<option value="orange">Orange  JavaScript</option>
+						<option value="#183A1D">Default</option>
+					</select>
+					<label for="target">Target:</label>
+					<select id="target" name="target">
+						<option value="left">Left Window</option>
+						<option value="right">Right Window</option>
+					</select><br>
+					<label for="file">Selectfile to upload:</label>
+					<input type="file" id="file" name="file" disabled><br>
+					<input type="button" id="create" value="Create Resource Button" onclick="createButton()">
+				</form>
+				<div id="button-container"></div>
+				<div class="remove-container" id="remove-container"></div>
+				<hr>
+				<h1>Add Trello account</h1>
+				<label for="urlapi">URL of API:</label>
+				<input type="text" id="urlapi"><br>
+				<label for="apikey">API key:</label>
+				<input type="text" id="apikey"><br>
+				<label for="apitoken">Token:</label>
+				<input type="text" id="apitoken">
+				<input type="button" id="createapi" value="Create API and apply to Ticketing button" onclick="createAPIurl()">
+				<hr>
+
+				<h1>Backup/Restore</h1>
+				<p>
+				   <button id="backup-button">Backup Local Storage</button>
+				</p>
+		   
+			   <p>
+				   <label for="restore-input">Restore Local Storage:</label>
+				   <input type="file" id="restore-input">
+			   </p>
+			</div>  
+		</div>
+	</div>	
+	
+
+	<div id="" class="separatorContainer">
+		<div id="panel1" class="panel">
+			<div name="tt" class="iframe-wrapper">
+				<iframe name="left" src="" type="application/pdf"></iframe>
+			</div>
+		</div>
+		<div id="divider" class="dividerStyle"></div>
+		<div id="panel2" class="panel">
+			<div class="iframe-wrapper">
+				<iframe width="100%"
+				height="100%"
+				 name="right" src="" type="application/pdf"></iframe>
+			</div>
+		</div>
+	</div>
+	</body>
+	</html>
+	<script src="script.js"></script>
+	<script src="local_storage_back_restore.js"></script>
+	

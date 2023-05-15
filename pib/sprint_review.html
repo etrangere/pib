@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const prefix = window.location.pathname.replace(/\/{2,}/g, '/');
+        const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
+        const baseUrl = `http://localhost${currentPath}`;
+        //alert(baseUrl); 
+      </script>
+    <title>Sprint review</title>
+</head>
+<header>Sprint review</header>
+<body>
+    <div id="textarea-container"> 
+        <label for="Sprint review">Validate</label><input id="Sprintreview" type="checkbox" ><label for="Sprint review">Ignore</label><input id="Sprintreview" type="checkbox" >Sprint Review
+    </div>
+    <p>
+        La sprint review est l’une des cérémonies Scrum qui se déroulent au sein du cadre travail agile Scrum. Cette réunion a lieu à la fin de chaque sprint, afin de passer en revue le travail accompli durant le sprint écoulé. C’est le moment de présenter les développements logiciels apportés au produit, qui sont testés et fonctionnels.
+
+Mais plus que la simple démonstration du produit, de ses corrections ou de ses nouvelles fonctionnalités, l’objet de cette réunion est également d’échanger et d’identifier les améliorations possibles.
+
+Découvrez toutes les caractéristiques de la sprint review, qui y participe, son déroulement par étapes et comment en assurer une organisation efficace !
+    </p>
+    <div><label for="step7">Step 7:</label>
+        <input type="checkbox" id="step7" name="step7" onchange="updateProgressBar()">
+    </div> 
+</body>
+</html>
+<script>
+    const textareaContainer = document.getElementById("textarea-container");
+    const textareas = textareaContainer.getElementsByTagName("textarea");
+    const checkboxes = textareaContainer.querySelectorAll("input[type='checkbox']");
+    
+    let formValues = {};
+    
+    let counter = 0; // initialize counter variable
+    
+    for (let i = 0; i < textareas.length + checkboxes.length; i++) {
+      if (i < textareas.length) {
+        const textarea = textareas[i];
+        const id = prefix + (counter + 1);
+        textarea.id = id;
+        formValues[id] = textarea.value;
+        textarea.addEventListener("input", (event) => {
+          formValues[id] = event.target.value;
+          localStorage.setItem("formValues", JSON.stringify(formValues));
+        });
+        counter++; // increment counter variable
+      } else {
+        const checkbox = checkboxes[i - textareas.length];
+        const id = prefix + (counter + 1);
+        checkbox.id = id;
+        formValues[id] = checkbox.checked;
+        checkbox.addEventListener("change", (event) => {
+          formValues[id] = event.target.checked;
+          localStorage.setItem("formValues", JSON.stringify(formValues));
+        });
+        counter++; // increment counter variable
+      }
+    }
+    
+    const savedFormValues = localStorage.getItem("formValues");
+    
+    if (savedFormValues) {
+      formValues = JSON.parse(savedFormValues);
+      for (const id in formValues) {
+        if (formValues.hasOwnProperty(id)) {
+          const element = document.getElementById(id);
+          if (element) {
+            if (element.tagName === "TEXTAREA") {
+              element.value = formValues[id];
+            } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+              element.checked = formValues[id];
+            }
+          } else {
+            console.warn(`Element with id "${id}" not found on page`);
+          }
+        }
+      }
+    }
+    
+    const updateButton = document.getElementById("update-button-all");
+    updateButton.addEventListener("click", () => {
+      for (let i = 0; i < textareas.length + checkboxes.length; i++) {
+        const id = prefix + (i + 1);
+        const element = document.getElementById(id);
+        if (element) {
+          if (element.tagName === "TEXTAREA") {
+            formValues[id] = element.value;
+          } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+            formValues[id] = element.checked;
+          }
+        } else {
+          console.warn(`Element with id "${id}" not found on page`);
+        }
+      }
+      localStorage.setItem("formValues", JSON.stringify(formValues));
+      alert("Values updated!");
+    });
+    
+    </script>

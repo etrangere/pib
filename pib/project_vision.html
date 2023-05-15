@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script>
+      const prefix = window.location.pathname.replace(/\/{2,}/g, '/');
+	  	const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
+		  const baseUrl = `http://localhost${currentPath}`;
+		  //alert(prefix); 
+    </script>
+    <title>Project vision</title>
+</head>
+<body>
+
+
+
+     <div>  <label for="step1">Step 1:</label>
+    <input type="checkbox" id="step1" name="step1" onchange="updateProgressBar()"></div> 
+    
+    <h1>Project vision1</h1>
+    
+    <!-- Create a container div for the textareas and the "Update" button -->
+    <div id="textarea-container"> 
+    <!-- Create the "Update" button -->
+    <!-- <button id="update-button-all" >Update</button> -->
+    
+    <div class="parent" style="height: 48rem;">
+
+         
+    
+    
+        
+      <div class="div1" >
+            <h3><img src="./img/eye.png" > VISION</h3>
+            <p>
+                What is the reason for creating the product?
+                What positive change should it create?</p>
+                <textarea  id="textarea1" rows="6" cols="110"></textarea>
+        </div>
+        <div class="div2" > 
+            <h3><img src="./img/group.png" >  TARGET GROUP</h3>
+            <p>Which market or market segment does the
+product address? Who are the target customers
+and users?</p>
+                <textarea id="textarea2" rows="15" cols="20"></textarea>   
+        </div>
+        <div class="div3">
+            <h3><img src="./img/heart.png" >NEEDS</h3>
+            <p>
+                What problem does the product solve or which
+benefit does it offer? If you identify several
+needs, prioritise them and move the most
+important one to the top.</p>
+                <textarea id="textarea3" rows="15" cols="20"></textarea>     
+         </div>
+        <div class="div4"> 
+            <h3><img src="./img/product.png" >PRODUCT</h3>
+            <p>
+                What product is it? What are its three to five
+                stand-out features that set it apart from
+                competing offering? Is it feasible to develop the
+                product?</p>
+                <textarea id="textarea4" rows="15" cols="20"></textarea>     
+        </div>
+        <div class="div5"> 
+            <h3><img src="./img/dollar.png" >BUSINESS GOALS</h3>
+            <p>
+                How will the product benefit the company that
+develops and provides it? What are the desired
+business benefits? Prioritise them and move
+the most important one to the top. </p>
+                <textarea id="textarea5" rows="15" cols="20"></textarea>
+            
+        </div>
+
+
+
+
+    </div>
+
+<!-- here  -->
+
+
+<h1 style="text-align: center;">PRODUCT VISION BOARD CHECKLIST</h1>
+<h4 style="text-align: center;">Use the following checklist to ensure that your Product Vision Board is effective.</h4>
+<h3>VISION</h3>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c1" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Inspiring: Describes the positive change the product should create.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c2"type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Shared: Unites people, creates alignment, and facilitates collaboration.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c3" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Ethical: Gives rise to a product that does not cause any harm to people and the planet.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c4" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Concise: Easy to understand and remember.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c5" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Ambitious: Describes a big, audacious goal that might never be fully reached.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c6" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Enduring: Provides guidance for the next five to ten years and is free from assumptions about the solution.</p>
+    </label>
+</div>
+
+
+
+
+<h3>TARGET GROUP</h3>
+
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c7" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Clear: Use relevant qualities like demographics and behavioural attributes to characterise the target group.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c8" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Specific: You can tell if somebody is included in the target group or not.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c9" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Cohesive: The members of a target group share similar attributes, e.g., age, lifestyle, disposable income. If that’s not the case, then break up the target group and form several subgroups.</p>
+    </label>
+</div>
+
+
+
+
+
+<h3>NEEDS</h3>
+
+
+
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c10" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Outcome-based: Capture the reason why people would want to use the product. Describe what success looks like from the
+        perspectives of the users and customers.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c11" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Specific: The needs are detailed enough so that you can validate them.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c12" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Focused: Concentrate on the main problem/benefit, the main reason for people to use the product.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c13" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Prioritised: If you do identify several needs, prioritise them according to their importance for the target group.</p>
+    </label>
+</div>
+
+
+<h3>PRODUCT</h3>
+
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c14" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Type:
+        It’s clear what kind of product you want to offer, for example, mobile app on Android and iOS</p>
+    </label>
+</div>
+
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c15" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Differentiated: The aspects of your product that make it stand out, set it apart from alternative offerings are stated.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c16" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Focused: There are no more than five features.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c17" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Big: The features are coarse-grained product capabilities; no epics and user stories!</p>
+    </label>
+</div>
+
+
+
+<h3>BUSINESS GOALS</h3>
+
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c18" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Outcome-based:The desired business benefits, the company’s reason for investing in the product, are clearly described, for
+        example, revenue, brand equity, cost savings. </p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c19" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Specific: 
+        The business goals are detailed; state rough targets if possible.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c20" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Prioritised: If more than one business goal is identified; order according to business impact.</p>
+    </label>
+</div>
+
+
+
+<h3>BONUS CRITERIA</h3>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c21" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Needs-first: Start with the needs after you’ve captured the vision especially when you create a new strategy—be it for
+        a brand-new product or for an existing one.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c22" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Validated: The strategy captured on the product vision board does not contain any major hypotheses and risks. It has
+        been successfully validated, for instance, by interviewing and observing target users, building throwaway
+        prototypes, and carrying out competitive analysis.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c23" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Adaptive: The product vision board is regularly inspected and adapted, at least once every three months as a rule of
+        thumb.</p>
+    </label>
+</div>
+
+<div class="checkbox checkbox_allow_div">
+    <label class="checkboxVision">
+      <input id="c24" type="checkbox" name="allow" value="1" class="allow_checkbox">
+      <p>Shared: The key stakeholders and development team members have a shared understanding of the product vision
+        board contents and support the decisions captured on it.</p>
+    </label>
+</div>
+
+
+</div>
+
+
+
+
+
+   </body>
+</html>
+<script>
+const textareaContainer = document.getElementById("textarea-container");
+const textareas = textareaContainer.getElementsByTagName("textarea");
+const checkboxes = textareaContainer.querySelectorAll("input[type='checkbox']");
+
+let formValues = {};
+
+let counter = 0; // initialize counter variable
+
+for (let i = 0; i < textareas.length + checkboxes.length; i++) {
+  if (i < textareas.length) {
+    const textarea = textareas[i];
+    const id = prefix + (counter + 1);
+    textarea.id = id;
+    formValues[id] = textarea.value;
+    textarea.addEventListener("input", (event) => {
+      formValues[id] = event.target.value;
+      localStorage.setItem("formValues", JSON.stringify(formValues));
+    });
+    counter++; // increment counter variable
+  } else {
+    const checkbox = checkboxes[i - textareas.length];
+    const id = prefix + (counter + 1);
+    checkbox.id = id;
+    formValues[id] = checkbox.checked;
+    checkbox.addEventListener("change", (event) => {
+      formValues[id] = event.target.checked;
+      localStorage.setItem("formValues", JSON.stringify(formValues));
+    });
+    counter++; // increment counter variable
+  }
+}
+
+const savedFormValues = localStorage.getItem("formValues");
+
+if (savedFormValues) {
+  formValues = JSON.parse(savedFormValues);
+  for (const id in formValues) {
+    if (formValues.hasOwnProperty(id)) {
+      const element = document.getElementById(id);
+      if (element) {
+        if (element.tagName === "TEXTAREA") {
+          element.value = formValues[id];
+        } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+          element.checked = formValues[id];
+        }
+      } else {
+        console.warn(`Element with id "${id}" not found on page`);
+      }
+    }
+  }
+}
+
+const updateButton = document.getElementById("update-button-all");
+updateButton.addEventListener("click", () => {
+  for (let i = 0; i < textareas.length + checkboxes.length; i++) {
+    const id = prefix + (i + 1);
+    const element = document.getElementById(id);
+    if (element) {
+      if (element.tagName === "TEXTAREA") {
+        formValues[id] = element.value;
+      } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+        formValues[id] = element.checked;
+      }
+    } else {
+      console.warn(`Element with id "${id}" not found on page`);
+    }
+  }
+  localStorage.setItem("formValues", JSON.stringify(formValues));
+  alert("Values updated!");
+});
+
+</script>
+  
+
+    
+    
+    
