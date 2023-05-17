@@ -302,6 +302,17 @@ the most important one to the top. </p>
 </body>
 </html>
 <script>
+ 
+ // Define the increment value
+ let incrementValue = 12.5; // Set the initial value
+//Change value with method selection
+  let methoddev = localStorage.getItem("val");
+
+    if(methoddev == "Kanban"){
+      incrementValue = 33;
+    }
+ 
+
   // Function to update the progress bar and save the value
   function updateProgressBar(stepId) {
     // Get the step checkbox by its ID
@@ -314,7 +325,7 @@ the most important one to the top. </p>
     }
 
     // Calculate the progress increment
-    const progressIncrement = stepCheckbox.checked ? 16 : -16;
+    const progressIncrement = stepCheckbox.checked ? incrementValue : -incrementValue;
 
     // Retrieve the overall progress value from localStorage
     const savedProgress = localStorage.getItem("progress");
@@ -360,7 +371,7 @@ the most important one to the top. </p>
     const savedCheckboxValue = localStorage.getItem("step1");
     if (savedCheckboxValue === "checked") {
       stepCheckbox.checked = true;
-      overallProgress += 16;
+      overallProgress += incrementValue;
     } else {
       stepCheckbox.checked = false;
     }
