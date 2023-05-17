@@ -1,0 +1,5 @@
+1.For Chrome browser extention must be added  "Autoriser l'accès aux fichiers locaux" for access to pdf and other local files.
+2.For local pdf or other type of files path must be replaced "/var/www/" with "localhost" and must be placed in "source" folder and the URL must be generated there.
+3.All office files must be placed in google drive with shared url and after it can be added as resource with button.
+4.'http://code.jquery.com/jquery-1.7.1.min.js'    is required.
+5.localhost must be configured with one of webservers like Apache.
