@@ -1,3 +1,3 @@
-1.pour browser Chrome il faut ajouter "Autoriser l'accès aux fichiers locaux" pour access les pdf local dans la machine.
-2.For local pdf or other type of files path must modify ""/var/www/" with "localhost" and must be placed in "source" folder and the URL must be generated there.
+1.For Chrome browser extention must be added  "Autoriser l'accès aux fichiers locaux" for access to pdf and other local files.
+2.For local pdf or other type of files path must be replaced "/var/www/" with "localhost" and must be placed in "source" folder and the URL must be generated there.
 3.All office files must be placed in google drive with shared url and after it can be added as resource with button.
