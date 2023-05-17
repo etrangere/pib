@@ -284,28 +284,7 @@ function loadDataFromLocalStorage() {
 }
 
 
-  /*   function loadDataFromLocalStorage() {
-      const versionsData = JSON.parse(localStorage.getItem("versions")) || [];
-      versionsData.forEach((versionData) => {
-        const versionNumber = versionData.versionNumber;
-        const versionDate = versionData.versionDate;
-        const inputValues = versionData.inputValues;
-        const version = new Version(versionNumber, versionDate, inputValues);
-        versions.push(version);
-        versionsContainer.appendChild(version.element);
-        version.printInputs(version.element.querySelector(".input-container"));
-      });
-    } */
   
-    /* function addNewVersion() {
-      const versionNumber = versions.length + 1;
-      const versionDate = new Date().toLocaleDateString();
-      const inputValues = ["", "", "", "", ""];
-      const version = new Version(versionNumber, versionDate, inputValues);
-      versions.push(version);
-      versionsContainer.appendChild(version.element);
-      localStorage.setItem("versions", JSON.stringify(versions));
-    } */
 
     function addNewVersion() {
   const versionNumber = versions.filter((v) => v.idPrefix === prefix).length + 1;
