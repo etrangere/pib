@@ -18,7 +18,7 @@
 
     <div>
         <label for="step2">Step 2:</label>
-    <input type="checkbox" id="step2" name="step2" onchange="updateProgressBar()">
+    <input type="checkbox" id="step2" name="step2" onchange="updateProgressBar('step2')">
     </div>
     <h1>Project roadmap</h1>
 
@@ -108,7 +108,74 @@
 
 </body>
 </html>
+<script>
+  // Function to update the progress bar and save the value
+  function updateProgressBar(stepId) {
+    // Get the step checkbox by its ID
+    const stepCheckbox = document.getElementById(stepId);
 
+    // Check if the step checkbox element exists
+    if (!stepCheckbox) {
+      console.error("Step checkbox not found!");
+      return;
+    }
+
+    // Calculate the progress increment
+    const progressIncrement = stepCheckbox.checked ? 16 : -16;
+
+    // Retrieve the overall progress value from localStorage
+    const savedProgress = localStorage.getItem("progress");
+    let overallProgress = 0;
+
+    if (savedProgress && !isNaN(savedProgress)) {
+      overallProgress = parseInt(savedProgress, 10);
+    }
+
+    // Update the overall progress by adding the current progress increment
+    overallProgress += progressIncrement;
+
+    // Save the overall progress value to localStorage
+    localStorage.setItem("progress", overallProgress.toString());
+
+    // Save the checked state of the step checkbox to localStorage
+    localStorage.setItem(stepId, stepCheckbox.checked ? "checked" : "unchecked");
+
+    // Update the width of the progress bar
+    document.getElementById("myBar").style.width = overallProgress + "%";
+  }
+
+  // Check if progress value exists in localStorage on page load
+  document.addEventListener("DOMContentLoaded", function() {
+    // Retrieve the overall progress value from localStorage
+    const savedProgress = localStorage.getItem("progress");
+    let overallProgress = 0;
+
+    if (savedProgress && !isNaN(savedProgress)) {
+      overallProgress = parseInt(savedProgress, 10);
+    }
+
+    // Get the step checkbox by its ID
+    const stepCheckbox = document.getElementById("step2");
+
+    // Check if the step checkbox element exists
+    if (!stepCheckbox) {
+      console.error("Step checkbox not found!");
+      return;
+    }
+
+    // Retrieve the checked state of the step checkbox from localStorage
+    const savedCheckboxValue = localStorage.getItem("step2");
+    if (savedCheckboxValue === "checked") {
+      stepCheckbox.checked = true;
+      overallProgress += 16;
+    } else {
+      stepCheckbox.checked = false;
+    }
+
+    // Update the width of the progress bar with the overall progress value
+    document.getElementById("myBar").style.width = overallProgress + "%";
+  });
+</script>
 <script>
 
     const versionsContainer = document.getElementById("versions-container");

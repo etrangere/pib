@@ -54,9 +54,10 @@
 				<button >Login</button>
 			</div>
 	</nav>	
+	<!--progressbar-->
 	<div class="progress-container">
 		<div class="progress-bar" id="myBar"></div>
-	    </div>	
+	  </div>
     <!--create button set static-->
     <div id="button-container-etape" class="button-container-for-etape">
 		<div class="methodflag">
@@ -165,6 +166,23 @@
 	</div>
 	</body>
 	</html>
+	<script>
+		// Function to update the progress bar
+		function updateProgressBar(progress) {
+		  document.getElementById("myBar").style.width = progress + "%";
+		}
+	  
+		// Retrieve the progress value from localStorage
+		const savedProgress = localStorage.getItem("progress");
+		let overallProgress = 0;
+	  
+		if (savedProgress && !isNaN(savedProgress)) {
+		  overallProgress = parseInt(savedProgress, 10);
+		}
+	  
+		// Update the progress bar on page load
+		updateProgressBar(overallProgress);
+	</script>
 	<script src="script.js"></script>
 	<script src="local_storage_back_restore.js"></script>
 	
