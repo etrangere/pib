@@ -11,7 +11,8 @@
 		const baseUrl = `http://localhost${currentPath}`;
 		//alert(baseUrl); 
 	</script>
-	<script>
+	<!--TODO Trello--> 
+	<!-- <script>
 		const script = document.createElement('script');
 		script.src = 'https://api.trello.com/1/boards/BOARD_ID?fields=all&lists=all&cards=all&members=all&key=API_KEY&token=TOKEN';
 		script.addEventListener('load', () => {
@@ -19,35 +20,22 @@
 			console.log(board);
 		});
 		document.body.appendChild(script);
-	</script>
-	<script> 
-	  fetch('https://gitlab.com/idp4020607/project-information-board/:id/access_requests', {
-		method:'GET',
-			headers: {
-				'Authorization': 'Basic'  + btoa('gugo2828@gmail.com:Smdilia2012@'),
-				'PRIVATE-TOKEN': 'glpat-koVmNYNcgZbMwWtxRdth',
-				
-				'accept': 'application/json'
-			}
-		});
-	 </script>
+	</script> -->
 </header>
 <body>
 	<nav>
 			<a href=baseUrl+"/home.html" id="btnlogo" target="right"><img  src="./img/logo.png"></a>
-			<!--dropdown-->
-			<select class="projectselect" name="pets" id="pet-select">
-				<option value=""><script type="text/javascript">
+			
+			<!--TODO Navbar selector-->
+			<select class="projectselect" name="mySelect" id="mySelect">
+				 <option value=""><script type="text/javascript">
 					document.write(baseUrl)
-				</script></option>
-				<option value="dog">Dog</option>
-				<option value="cat">Cat</option>
-				<option value="hamster">Hamster</option>
-				<option value="parrot">Parrot</option>
-				<option value="spider">Spider</option>
-				<option value="goldfish">Goldfish</option>
+				</script></option> -->
+				<option value="http://localhost/35.beeponote/pib/">http://localhost/35.beeponote/pib/</option>
+				<option value="http://localhost/69.pib/pib">http://localhost/69.pib/pib</option>	
+			    <option value="http://localhost/15.reactdawan/pib/">http://localhost/15.reactdawan/pib/</option>
 			</select>
-
+			
 			  <!--dropdown-->
 			<div>     
 			</div>
@@ -81,6 +69,16 @@
 			<!-- Modal content -->
 			<div class="modal-content">
 				<span class="close">&times;</span>
+			
+			<h1>Add URL to navbar selector dropdown</h1>
+				<form>
+					<label for="url">URL:</label>
+					<input type="text" id="url" name="url" disabled><br>
+					<input type="button" id="create" value="Create Fast Switch URL " onclick="createButton()" disabled>
+				</form>
+				<div id="button-container"></div>
+				<div class="remove-container" id="remove-container"></div>
+				<hr>	
 				
 				<!--create button with name and url-->
 			<h1>Add etape buttons set acording to the method</h1>
@@ -178,6 +176,32 @@
 	  
 		// Update the progress bar on page load
 		updateProgressBar(overallProgress);
+	</script>
+	<script>
+		const selectElement = document.getElementById("mySelect");
+	  
+		selectElement.addEventListener("change", function() {
+		  const selectedOption = selectElement.value;
+	  
+		  // Check if a valid option is selected
+		  if (selectedOption) {
+			// Make a GET request to the selected URL
+			fetch(selectedOption)
+			  .then(response => {
+				if (response.ok) {
+				  // Handle the response here
+				  window.location.href = selectedOption;
+				  //window.open(selectedOption, "_blank");
+				  //console.log("GET request successful");
+				} else {
+				  console.error("GET request failed");
+				}
+			  })
+			  .catch(error => {
+				console.error("Error occurred during GET request:", error);
+			  });
+		  }
+		});
 	</script>
 	<script src="script.js"></script>
 	<script src="local_storage_back_restore.js"></script>

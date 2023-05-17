@@ -1,4 +1,3 @@
-
 /*modal*/
 // Get the modal
 let modal = document.getElementById("myModal");
@@ -317,40 +316,12 @@ function createButtonset() {
         document.getElementById("remove-container-etape").appendChild(removeButtonset4);
      }
      
-     //for custom option
-    /* else if(target == "custom"){
-       
-        //read from input the url for custom
-        var target = document.getElementById("target").value;
-        var url = document.getElementById("url").value;
-        var newButtonset = document.createElement("button");        
-        var link = document.createElement("a");
-        var buttonText = document.createTextNode("Backlog");
-      
-        link.href = url;
-        link.target = target;
-        link.target = target;
-        link.appendChild(buttonText);
-        newButtonset.appendChild(link);
-        newButtonset.classList.add("custom-button");
-        var removeButtonset = document.createElement("button");
-        var removeButtonText = document.createTextNode(`Remove Button: ${text}`);
-        removeButtonset.appendChild(removeButtonText);
-        removeButtonset.classList.add("remove-button");
-        removeButtonset.addEventListener("click", function() {
-            newButtonset.remove();
-            removeButtonset.remove();
-        });
-        document.getElementById("button-container-etape").appendChild(newButtonset);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset);
-     }
-*/
  
 // method button selection store the button and its value in localStorage
     let btnmethod = document.getElementById("method"); 
     localStorage.setItem("val",btnmethod.value); 
 }
-//problem!!!!!!!!!!!!!!!!!!!!!!!!!
+
 //function to add prefix to ID tags 
     document.addEventListener("DOMContentLoaded", function() {
 	var elems = document.querySelectorAll("[id]");
@@ -411,7 +382,7 @@ if (localStorage.getItem("buttons")) {
   
       
 
-//create button and text fields on them
+//create source buttons and text fields on them
 function createButton() {
     let url = document.getElementById("url").value;
     let text = document.getElementById("text").value;
@@ -439,7 +410,7 @@ function createButton() {
     document.getElementById("button-container").appendChild(newButton);
     document.getElementById("remove-container").appendChild(removeButton);
 
-    // Store the button and its text in localStorage
+    // Store the source buttons and they text in localStorage
     const buttonInfo = {
         id: prefix,
         text: text,
@@ -451,7 +422,7 @@ function createButton() {
     localStorage.setItem("buttons", JSON.stringify(buttons));
 }
 
-// read the value from storage and preset in option
+// read the value of method button from storage and preset in option
 onload =function(){
     if (localStorage.getItem("val")) {  
         document.getElementById("method").value=localStorage.getItem("val");   
@@ -459,19 +430,6 @@ onload =function(){
      }
    
 } 
-//cant keep value of method - each time recovers the value from local storage
-/* window.onload = function() {
-    var methodElement = document.getElementById("method").value;
-    console.log(methodElement)
-    if (methodElement) {
-      if (localStorage.getItem("val")) {
-        methodElement.value = localStorage.getItem("val");
-        btnselect.onclick();
-      }
-    } else {
-      console.error("method element not found");
-    }
-}; */
 
  
  
