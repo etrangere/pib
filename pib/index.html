@@ -51,7 +51,7 @@
 			  <!--dropdown-->
 			<div>     
 				<!-- Trigger/Open The Modal -->	
-				<button >Login</button>
+				<button disabled>Login</button>
 			</div>
 	</nav>	
 	<!--progressbar-->
@@ -127,12 +127,12 @@
 				<hr>
 				<h1>Add Trello account</h1>
 				<label for="urlapi">URL of API:</label>
-				<input type="text" id="urlapi"><br>
+				<input type="text" id="urlapi" disabled><br>
 				<label for="apikey">API key:</label>
-				<input type="text" id="apikey"><br>
+				<input type="text" id="apikey" disabled><br>
 				<label for="apitoken">Token:</label>
-				<input type="text" id="apitoken">
-				<input type="button" id="createapi" value="Create API and apply to Ticketing button" onclick="createAPIurl()">
+				<input type="text" id="apitoken" disabled>
+				<input type="button" id="createapi" value="Create API and apply to Ticketing button" onclick="createAPIurl()" disabled>
 				<hr>
 
 				<h1>Backup/Restore</h1>
