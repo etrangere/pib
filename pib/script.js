@@ -62,59 +62,6 @@ window.addEventListener('load', function() {
 });
 /*separator-spliter finish*/
 
-
-
-
-
-
-
-/*progressbar*/
-function updateProgressBar() {
-    let progress = 0;
-    
-if (document.getElementById("step1")) {     
-    if (document.getElementById('step1').checked) {
-        progress += 16;
-    }
-}
-   
-if (document.getElementById("step2")) {
-    
-    if (document.getElementById("step2").checked) {
-        progress += 14;
-    }
-}
-if (document.getElementById("step3")) {
-    if (document.getElementById("step3").checked) {
-        progress += 14;
-    }
-}
-if (document.getElementById("step4")) {
-    if (document.getElementById("step4").checked) {
-        progress += 14;
-    }
-}
-if (document.getElementById("step5")) {
-    if (document.getElementById("step5").checked) {
-        progress += 14;
-    }
-}
-if (document.getElementById("step6")) {
-    if (document.getElementById("step6").checked) {
-        progress += 14;
-    }
-}
-if (document.getElementById("step7")) {
-    if (document.getElementById("step7").checked) {
-        progress += 14;
-    }
-}
-
-    document.getElementById("myBar").style.width = progress + "%";
-}
-/*progressbar finish*/
-
-
 /*buttons*/
 function createButtonset() {
 
