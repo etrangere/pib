@@ -22,88 +22,34 @@
     </div>
     <h1>Project roadmap</h1>
 
-    <button id="add" onClick=addNewVersion();>Add Version</button>
-    <div id="versions-container"></div>
     
-
-    <div class="parentro">
-        <div class="divro1"> <h3><img src="./img/calendar.png" > DATE</h3>
-            <p>The release date or timeframe</p></div>
-        <div class="divro2"> <h3><img src="./img/etiquette.png" > NAME</h3>
-            <p>The name of the new release</p></div>
-        <div class="divro3"> <h3><img src="./img/cible.png" > GOAL</h3>
-            <p>The benefit the product
-                should offer</p></div>
-        <div class="divro4"> <h3><img src="./img/star.png" > FEATURES</h3>
-            <p>The high-level features
-                necessary to meet the goal</p></div>
-        <div class="divro5"> <h3><img src="./img/graph.png" > METRICS</h3>
-            <p>The metrics to determine if the
-                goal has been met</p></div>
-
-        <div class="divro6"> Date or timeframe
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro7"> Name/version
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro8"> Goal
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro9"> Features
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro10"> Metrics
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro11"> Date or timeframe
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro12"> Name/version
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro13"> Goal
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro14"> Features
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro15"> Metrics
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro16"> Date or timeframe
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro17"> Name/version
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro18"> Goal
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro19"> Features
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro20"> Metrics
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro21"> Date or timeframe
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro22"> Name/version
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro23"> Goal
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro24"> Features
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        <div class="divro25"> Metrics
-            <textarea rows="2" cols="15"></textarea>
-        </div>
-        </div>
-        
-        
+    
+<div class="road_map">
+  <div class="parentro">
+    <div class="divro1"> <h3><img src="./img/calendar.png" > DATE</h3>
+        <p>The release date or timeframe</p></div>
+    <div class="divro2"> <h3><img src="./img/etiquette.png" > NAME</h3>
+        <p>The name of the new release</p></div>
+    <div class="divro3"> <h3><img src="./img/cible.png" > GOAL</h3>
+        <p>The benefit the product
+            should offer</p></div>
+    <div class="divro4"> <h3><img src="./img/star.png" > FEATURES</h3>
+        <p>The high-level features
+            necessary to meet the goal</p></div>
+    <div class="divro5"> <h3><img src="./img/graph.png" > METRICS</h3>
+        <p>The metrics to determine if the
+            goal has been met</p></div>       
+  </div>
+  <div class="divro6">
+    <div id="versions-container"></div>
+  </div>
+  <button id="add" onClick=addNewVersion();>Add Version</button>
+</div>
+   
+      
+    
+       
+    
         
 
 </body>
@@ -188,115 +134,119 @@
    });
  </script>
 <script>
+  const versionsContainer = document.getElementById("versions-container");
+  const versions = [];
+  const names = ["DATE", "NAME", "GOAL", "FEATURES", "METRICS"];
 
-    const versionsContainer = document.getElementById("versions-container");
-    const versions = [];
-    const names = ["DATE", "NAME", "GOAL", "FEATURES", "METRICS"];
-  
-
-    class Version {
+  class Version {
     constructor(versionNumber, versionDate, inputValues, prefix) {
-    this.versionNumber = versionNumber;
-    this.versionDate = versionDate;
-    this.inputValues = inputValues;
-    this.element = this.createDiv(prefix);
-    this.idPrefix = prefix;
+      this.versionNumber = versionNumber;
+      this.versionDate = versionDate;
+      this.inputValues = inputValues;
+      this.element = this.createDiv(prefix);
+      this.idPrefix = prefix;
 
-    /*delete button*/
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    deleteBtn.addEventListener("click", () => {
-      const index = versions.indexOf(this);
-      if (index > -1) {
-        versions.splice(index, 1);
-      }
-      this.element.remove();
-      localStorage.setItem("versions", JSON.stringify(versions));
-    });
-    this.element.appendChild(deleteBtn);
-  }
-
-  /*for creating div*/
-  createDiv() {
-    const div = document.createElement("div");
-    div.classList.add("version");
-    div.innerHTML = `
-      <h3>Version ${this.versionNumber}</h3>
-      <p>Date: ${this.versionDate}</p>
-    `;
-    const inputContainer = document.createElement("div");
-    inputContainer.classList.add("input-container");
-    for (let i = 0; i < this.inputValues.length; i++) {
-      const inputDiv = document.createElement("div");
-      inputDiv.classList.add("input-div");
-      const label = document.createElement("label");
-      label.textContent = `${names[i]}:`;
-      const input = document.createElement("input");
-      input.setAttribute("type", "text");
-      input.setAttribute("placeholder", `Input ${i + 1}`);
-      input.value = this.inputValues[i];
-      input.id = `${prefix}-input${i}-${this.versionNumber}`; // use prefix to prefix the id
-      const updateButton = document.createElement("button");
-      updateButton.classList.add("update");
-      updateButton.textContent = "Update";
-      updateButton.addEventListener("click", () => {
-        this.inputValues[i] = input.value;
-       
-        localStorage.setItem(`version_${prefix}_${this.versionNumber}-input${i}`, input.value);
-        this.printInputs(inputContainer);
+      /* Delete button */
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "Delete";
+      deleteBtn.addEventListener("click", () => {
+        const index = versions.indexOf(this);
+        if (index > -1) {
+          versions.splice(index, 1);
+          localStorage.setItem(`versions_${prefix}`, JSON.stringify(versions));
+        }
+        this.element.remove();
+        this.removeVersionFromLocalStorage();
       });
-      inputDiv.appendChild(label);
-      inputDiv.appendChild(input);
-      inputDiv.appendChild(updateButton);
-      inputContainer.appendChild(inputDiv);
+      this.element.appendChild(deleteBtn);
     }
-    div.appendChild(inputContainer);
-    return div;
-  }
 
-  printInputs(container) {
-    container.querySelectorAll("input").forEach((input, i) => {
-      const inputValue = localStorage.getItem(`version_${prefix}_${this.versionNumber}-input${i}`) || "";
-      input.value = inputValue;
-      input.id=prefix+(i+1);
-      const valueElement = document.createElement("span");
-      valueElement.classList.add("value");
-      valueElement.textContent = inputValue;
-      input.nextElementSibling.innerHTML = "Value: ";
-      input.nextElementSibling.appendChild(valueElement);
-    });
-  }
-  
-}
+    createDiv() {
+      const div = document.createElement("div");
+      div.classList.add("divro6");
+      div.innerHTML = `
+        <h3>Version ${this.versionNumber}</h3>
+        <p>Date: ${this.versionDate}</p>
+      `;
+      const inputContainer = document.createElement("div");
+      inputContainer.classList.add("input-container");
+      for (let i = 0; i < this.inputValues.length; i++) {
+        const inputDiv = document.createElement("div");
+        inputDiv.classList.add("input-div");
+        
+        const label = document.createElement("label");
+        label.textContent = `${names[i]}:`;
+        const textarea = document.createElement("textarea");
+        textarea.setAttribute("placeholder", `Input ${i + 1}`);
+        textarea.value = this.inputValues[i];
+        textarea.id = `${prefix}-input${i}-${this.versionNumber}`;
+      
+        const updateButton = document.createElement("button");
+        updateButton.classList.add("update");
+        updateButton.textContent = "Update";
+        updateButton.addEventListener("click", () => {
+          this.inputValues[i] = textarea.value;
+          localStorage.setItem(`version_${prefix}_${this.versionNumber}-input${i}`, textarea.value);
+          this.printInputs(inputContainer);
+        });
+        inputDiv.appendChild(label);
+        inputDiv.appendChild(textarea);
+        inputDiv.appendChild(updateButton);
+        inputDiv.style.backgroundColor="red";
+        inputDiv.style.border="1px solid";
+        inputDiv.style.width="15rem";
+        inputDiv.style.height="7rem";
 
+        inputContainer.appendChild(inputDiv);
+      }
+      div.appendChild(inputContainer);
+      return div;
+    }
 
-function loadDataFromLocalStorage() {
-  const versionsData = JSON.parse(localStorage.getItem(`versions_${prefix}`)) || [];
-  versionsData.forEach((versionData) => {
-    const versionNumber = versionData.versionNumber;
-    const versionDate = versionData.versionDate;
-    const inputValues = versionData.inputValues;
-    const version = new Version(versionNumber, versionDate, inputValues, prefix);
-    versions.push(version);
-    versionsContainer.appendChild(version.element);
-    version.printInputs(version.element.querySelector(".input-container"));
+    printInputs(container) {
+  container.querySelectorAll("textarea").forEach((textarea, i) => {
+    const inputValue = localStorage.getItem(`version_${prefix}_${this.versionNumber}-input${i}`) || "";
+    textarea.value = inputValue;
+    textarea.id = `${prefix}-input${i}-${this.versionNumber}`; // Update the ID to include the version number
+    const valueElement = document.createElement("span");
+    valueElement.classList.add("value");
+    valueElement.textContent = inputValue;
+    textarea.nextElementSibling.innerHTML = "Value: ";
+    textarea.nextElementSibling.appendChild(valueElement);
   });
 }
 
+    removeVersionFromLocalStorage() {
+      for (let i = 0; i < names.length; i++) {
+        localStorage.removeItem(`version_${prefix}_${this.versionNumber}-input${i}`);
+      }
+    }
+  }
 
-  
+  function loadDataFromLocalStorage() {
+    const versionsData = JSON.parse(localStorage.getItem(`versions_${prefix}`)) || [];
+    versionsData.forEach((versionData) => {
+      const versionNumber = versionData.versionNumber;
+      const versionDate = versionData.versionDate;
+      const inputValues = versionData.inputValues;
+      const version = new Version(versionNumber, versionDate, inputValues, prefix);
+      versions.push(version);
+      versionsContainer.appendChild(version.element);
+      version.printInputs(version.element.querySelector(".input-container"));
+    });
+  }
 
-    function addNewVersion() {
-  const versionNumber = versions.filter((v) => v.idPrefix === prefix).length + 1;
-  const versionDate = new Date().toLocaleDateString();
-  const inputValues = ["", "", "", "", ""];
-  const version = new Version(versionNumber, versionDate, inputValues, prefix);
-  versions.push(version);
-  versionsContainer.appendChild(version.element);
-  localStorage.setItem(`versions_`+prefix, JSON.stringify(versions.filter((v) => v.idPrefix === prefix)));
-}
-  
-    window.onload = function() {
-      loadDataFromLocalStorage();
-    };
-  </script>
+  function addNewVersion() {
+    const versionNumber = versions.filter((v) => v.idPrefix === prefix).length + 1;
+    const versionDate = new Date().toLocaleDateString();
+    const inputValues = ["", "", "", "", ""];
+    const version = new Version(versionNumber, versionDate, inputValues, prefix);
+    versions.push(version);
+    versionsContainer.appendChild(version.element);
+    localStorage.setItem(`versions_${prefix}`, JSON.stringify(versions.filter((v) => v.idPrefix === prefix)));
+  }
+
+  window.onload = function () {
+    loadDataFromLocalStorage();
+  };
+</script>
