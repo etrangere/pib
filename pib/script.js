@@ -106,15 +106,15 @@ function createButtonset() {
         let buttonText8 = document.createTextNode("Sprint Review");
         let buttonText9 = document.createTextNode("Retrospective");
   
-        link1.href = baseUrl+"/project_vision.html";
-        link2.href = baseUrl+"/project_roadmap.html";
-        link3.href = "https://trello.com/b/w3FlvWqa.html";
-        link4.href = baseUrl+"/sprint_planning.html";
-        link5.href = baseUrl+"/pocker_planning.html";
-        link6.href = baseUrl+"/sprint.html";
-        link7.href = baseUrl+"/developpment.html";
-        link8.href = baseUrl+"/sprint_review.html";
-        link9.href = baseUrl+"/sprint_retrospective.html";
+        link1.href = baseUrl+"project_vision.html";
+        link2.href = baseUrl+"project_roadmap.html";
+        link3.href = baseUrl+"ticketing.html";
+        link4.href = baseUrl+"sprint_planning.html";
+        link5.href = baseUrl+"pocker_planning.html";
+        link6.href = baseUrl+"sprint.html";
+        link7.href = baseUrl+"developpment.html";
+        link8.href = baseUrl+"sprint_review.html";
+        link9.href = baseUrl+"sprint_retrospective.html";
         
         
         link1.target = "right";
@@ -260,7 +260,7 @@ function createButtonset() {
         let buttonText4 = document.createTextNode("Developpement");
         link1.href = baseUrl+"/project_vision.html";
         link2.href = baseUrl+"/project_roadmap.html";
-        link3.href = "https://api.trello.com/1/boards/w3FlvWqa?fields=all&lists=all&cards=all&members=all&key=ed1cb08d13d822a4a4cfd36608614ccf&token=ATTA23602e8637a937c296b56dcb5726de04ff3f1225f1045febbe6e08a7b3955775A47DEE41";
+        link3.href = baseUrl+"/ticketing.html";;
         link4.href = baseUrl+"/developpment.html";
         link1.target = "right";
         link2.target = "right";

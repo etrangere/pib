@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <header>
-	<title>Navbar with View</title>
+	<title>PIB</title>
 	<link rel="stylesheet" href="style.css">
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<!--<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>-->
     <script>
 		const prefixraw = window.location.pathname;
 		const prefix = prefixraw.slice(0, -1);
@@ -23,43 +23,42 @@
 	</script> -->
 </header>
 <body>
-	<nav>
-			<a href=baseUrl+"/home.html" id="btnlogo" target="right"><img  src="./img/logo.png"></a>
-			
-			<!--TODO Navbar selector-->
-			<select class="projectselect" name="mySelect" id="mySelect">
-				 <option value=""><script type="text/javascript">
-					document.write(baseUrl)
-				</script></option> -->
-				<option value="http://localhost/35.beeponote/pib/">http://localhost/35.beeponote/pib/</option>
-				<option value="http://localhost/69.pib/pib">http://localhost/69.pib/pib</option>	
-			    <option value="http://localhost/15.reactdawan/pib/">http://localhost/15.reactdawan/pib/</option>
-			</select>
-			
-			  <!--dropdown-->
-			<div>     
-			</div>
-	</nav>	
+
+
+<nav>
+	<!--create button set static-->
+	<div id="button-container-etape" class="button-container-for-etape">
+		<div  class="logo_div" ><a href=baseUrl+"/home.html" id="btnlogo" target="right"><img  src="./img/logo.png"></a></div>
+		<div class="methodflag">
+			<script>
+				if(localStorage.getItem("val")==null){
+					document.write("Method");
+				}else{
+					document.write(localStorage.getItem("val"));
+				}
+			</script>
+
+		</div>
+
+
+	</div>
+	<div class="config_div">
+		<div></div>
+		<!-- config button -->
+		<div class="button_config_div"><button id="myBtn" class="btnconfig">Configuration</button></div>
+	</div>
+
+</nav>
+
+
+
 	<!--progressbar-->
 	<div class="progress-container">
 		<div class="progress-bar" id="myBar"></div>
-	  </div>
-    <!--create button set static-->
-    <div id="button-container-etape" class="button-container-for-etape">
-		<div class="methodflag">
-			<script> 
-			if(localStorage.getItem("val")==null){
-				document.write("Method");
-			}else{
-				document.write(localStorage.getItem("val"));
-			}
-			</script>
-			</div>
 	</div>
-	
+
+
 	<div class="dropdown">  
-		<!-- config button -->
-	<button id="myBtn" class="btnconfig">Configuration</button>
 
 		<!--create button with name and url-->
 		<div id="button-container"></div>
@@ -70,13 +69,7 @@
 			<div class="modal-content">
 				<span class="close">&times;</span>
 			
-			<h1>Add URL to navbar selector dropdown</h1>
-				<form>
-					<label for="select_url">URL:</label>
-					<input type="text" id="select_url" name="select_url" disabled><br>
-					<input type="button" id="create" value="Create Fast Switch URL " onclick="createButton()" disabled>
-				</form>
-				<hr>	
+
 				
 				<!--create button with name and url-->
 			<h1>Add etape buttons set acording to the method</h1>
@@ -175,32 +168,7 @@
 		// Update the progress bar on page load
 		updateProgressBar(overallProgress);
 	</script>
-	<script>
-		const selectElement = document.getElementById("mySelect");
-	  
-		selectElement.addEventListener("change", function() {
-		  const selectedOption = selectElement.value;
-	  
-		  // Check if a valid option is selected
-		  if (selectedOption) {
-			// Make a GET request to the selected URL
-			fetch(selectedOption)
-			  .then(response => {
-				if (response.ok) {
-				  // Handle the response here
-				  window.location.href = selectedOption;
-				  //window.open(selectedOption, "_blank");
-				  //console.log("GET request successful");
-				} else {
-				  console.error("GET request failed");
-				}
-			  })
-			  .catch(error => {
-				console.error("Error occurred during GET request:", error);
-			  });
-		  }
-		});
-	</script>
+	
 	<script src="script.js"></script>
 	<script src="local_storage_back_restore.js"></script>
 	
