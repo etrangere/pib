@@ -171,67 +171,7 @@ function createButtonset() {
         newButtonset7.classList.add("custom-button-etape");
         newButtonset8.classList.add("custom-button-etape");
         newButtonset9.classList.add("custom-button-etape");
-
-        let removeButtonset1 = document.createElement("button");
-        let removeButtonset2 = document.createElement("button");
-        let removeButtonset3 = document.createElement("button");
-        let removeButtonset4 = document.createElement("button");
-        let removeButtonset5 = document.createElement("button");
-        let removeButtonset6 = document.createElement("button");
-        let removeButtonset7 = document.createElement("button");
-        let removeButtonset8 = document.createElement("button");
-        let removeButtonset9 = document.createElement("button");
-        let removeButtonText1 = document.createTextNode(buttonText1);
-        let removeButtonText2 = document.createTextNode(buttonText2);
-        let removeButtonText3 = document.createTextNode(buttonText3);
-        let removeButtonText4 = document.createTextNode(buttonText4);
-        let removeButtonText5 = document.createTextNode(buttonText5);
-        let removeButtonText6 = document.createTextNode(buttonText6);
-        let removeButtonText7 = document.createTextNode(buttonText7);
-        let removeButtonText8 = document.createTextNode(buttonText8);
-        let removeButtonText9 = document.createTextNode(buttonText9);
-        
-        removeButtonset1.appendChild(removeButtonText1);
-        removeButtonset2.appendChild(removeButtonText2);
-        removeButtonset3.appendChild(removeButtonText3);
-        removeButtonset4.appendChild(removeButtonText4);
-        removeButtonset5.appendChild(removeButtonText5);
-        removeButtonset6.appendChild(removeButtonText6);
-        removeButtonset7.appendChild(removeButtonText7);
-        removeButtonset8.appendChild(removeButtonText8);
-        removeButtonset9.appendChild(removeButtonText9);
-
-        removeButtonset1.classList.add("remove-button");
-        removeButtonset2.classList.add("remove-button");
-        removeButtonset3.classList.add("remove-button");
-        removeButtonset4.classList.add("remove-button");
-        removeButtonset5.classList.add("remove-button");
-        removeButtonset6.classList.add("remove-button");
-        removeButtonset7.classList.add("remove-button");
-        removeButtonset8.classList.add("remove-button");
-        removeButtonset9.classList.add("remove-button");
-        removeButtonset1.addEventListener("click", function() {
-            
-            newButtonset1.remove();
-            newButtonset2.remove();
-            newButtonset3.remove();
-            newButtonset4.remove();
-            newButtonset5.remove();
-            newButtonset6.remove();
-            newButtonset7.remove();
-            newButtonset8.remove();
-            newButtonset9.remove();
-
-            removeButtonset1.remove();
-            removeButtonset2.remove();
-            removeButtonset3.remove();
-            removeButtonset4.remove();
-            removeButtonset5.remove();
-            removeButtonset6.remove();
-            removeButtonset7.remove();
-            removeButtonset8.remove();
-            removeButtonset9.remove();
-        });
+    
         document.getElementById("button-container-etape").appendChild(newButtonset1);
         document.getElementById("button-container-etape").appendChild(newButtonset2);
         document.getElementById("button-container-etape").appendChild(newButtonset3);
@@ -241,16 +181,6 @@ function createButtonset() {
         document.getElementById("button-container-etape").appendChild(newButtonset7);
         document.getElementById("button-container-etape").appendChild(newButtonset8);
         document.getElementById("button-container-etape").appendChild(newButtonset9);
-
-        document.getElementById("remove-container-etape").appendChild(removeButtonset1);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset2);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset3);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset4);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset5);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset6);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset7);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset8);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset9);
      }else 
      {
         let newButtonset1 = document.createElement("button");  
@@ -292,42 +222,11 @@ function createButtonset() {
         newButtonset2.classList.add("custom-button-etape");
         newButtonset3.classList.add("custom-button-etape");
         newButtonset4.classList.add("custom-button-etape");
-        let removeButtonset1 = document.createElement("button");
-        let removeButtonset2 = document.createElement("button");
-        let removeButtonset3 = document.createElement("button");
-        let removeButtonset4 = document.createElement("button");
-        let removeButtonText1 = document.createTextNode(buttonText1);
-        let removeButtonText2 = document.createTextNode(buttonText2);
-        let removeButtonText3 = document.createTextNode(buttonText3);
-        let removeButtonText4 = document.createTextNode(buttonText4);
-        removeButtonset1.appendChild(removeButtonText1);
-        removeButtonset2.appendChild(removeButtonText2);
-        removeButtonset3.appendChild(removeButtonText3);
-        removeButtonset4.appendChild(removeButtonText4);
-        removeButtonset1.classList.add("remove-button");
-        removeButtonset2.classList.add("remove-button");
-        removeButtonset3.classList.add("remove-button");
-        removeButtonset4.classList.add("remove-button");
-        removeButtonset1.addEventListener("click", function() {
-            newButtonset1.remove();
-            newButtonset2.remove();
-            newButtonset3.remove();
-            newButtonset4.remove();
 
-            removeButtonset1.remove();
-            removeButtonset2.remove();
-            removeButtonset3.remove();
-            removeButtonset4.remove();
-       
-        });
         document.getElementById("button-container-etape").appendChild(newButtonset1);
         document.getElementById("button-container-etape").appendChild(newButtonset2);
         document.getElementById("button-container-etape").appendChild(newButtonset3);
         document.getElementById("button-container-etape").appendChild(newButtonset4);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset1);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset2);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset3);
-        document.getElementById("remove-container-etape").appendChild(removeButtonset4);
      }
      
  
