@@ -185,10 +185,11 @@
         updateButton.classList.add("update");
         updateButton.textContent = "Update";
         updateButton.style.width="14rem";
-       
+        updateButton.style.height="12rem";
         updateButton.style.overflow = "hidden";
         updateButton.style.textOverflow = "ellipsis";
         updateButton.style.whiteSpace = "wrap";
+        updateButton.style.overflowY = "scroll";
         updateButton.addEventListener("click", () => {
           this.inputValues[i] = textarea.value;
           localStorage.setItem(`version_${prefix}_${this.versionNumber}-input${i}`, textarea.value);
