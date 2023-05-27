@@ -61,6 +61,20 @@ window.addEventListener('load', function() {
 });
 /*separator-spliter finish*/
 
+
+/* function to execute two functions from one click  */
+function handleClick() {
+    block_button();
+    createButtonset();
+    
+}
+/* function to lock button after one click  */
+function block_button() {
+var button = document.getElementById("btnselect");
+button.disabled = true;
+}
+
+ 
 /*buttons*/
 function createButtonset() {
 
