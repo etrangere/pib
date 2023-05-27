@@ -204,7 +204,7 @@ function createButtonset() {
         let buttonText4 = document.createTextNode("Developpement");
         link1.href = baseUrl+"/project_vision.html";
         link2.href = baseUrl+"/project_roadmap.html";
-        link3.href = baseUrl+"/ticketing.html";;
+        link3.href = baseUrl+"/ticketing.html";
         link4.href = baseUrl+"/developpment.html";
         link1.target = "right";
         link2.target = "right";
@@ -234,6 +234,52 @@ function createButtonset() {
     let btnmethod = document.getElementById("method"); 
     localStorage.setItem("val",btnmethod.value); 
 }
+
+
+// Function to execute two functions from one click for apiURL  and button
+function handleClickAPI() {
+    make_api_url();
+    block_button_api();
+  }
+  
+  // Function to lock button after one click
+  function block_button_api() {
+    let button_api = document.getElementById("btnselectapi");
+    let api_url_value = document.getElementById("urlapi");
+    button_api.disabled = true;
+    localStorage.setItem("buttonDisabled", "true"); 
+    localStorage.setItem("apiURL", api_url_value.value); 
+  }
+  
+  // Function to retrieve the disabled state and URL value and apply them on page load
+  function applyButtonState() {
+    let button_api = document.getElementById("btnselectapi");
+    let isButtonDisabled = localStorage.getItem("buttonDisabled");
+    let apiURL = localStorage.getItem("apiURL");
+    
+    if (isButtonDisabled === "true") {
+      button_api.disabled = true;
+    } else {
+      button_api.disabled = false;
+    }
+    
+    // Use the stored API URL value as needed
+    if (apiURL) {
+      // Do something with the API URL
+      console.log("API URL:", apiURL);
+    }
+  }
+  
+  function make_api_url() {
+    let api_url_make = document.querySelectorAll("urlapi");
+    // alert(api_url_make)
+  }
+  
+  // Call applyButtonState() when the page loads to retrieve the disabled state and URL value
+  window.addEventListener("load", applyButtonState);
+//api  
+  
+
 
 //function to add prefix to ID tags 
     document.addEventListener("DOMContentLoaded", function() {

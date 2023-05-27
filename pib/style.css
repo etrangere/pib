@@ -193,22 +193,22 @@ a {
     min-height: 25px;
     text-align: left; 
     border-radius: 0 !important;
-   
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
    }
    
  button.custom-button {
    
-      background-color:  #183A1D; 
+     background-color:  #183A1D; 
      color: white;
      border: none;
      text-decoration: none; 
      display: inline-block; 
      font-size: 18px;
      margin:  3px;
-     width: 200px;
-     
-  
-    
+     width: 200px;  
  }
 
 button.custom-button-etape {
@@ -231,18 +231,6 @@ div.remove-container {
     align-items: left;
     margin-top: 10px;
     flex-wrap: wrap;
-}
-button.remove-button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 0.1px 0.1px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
 }
 
 /*project vision html*/
