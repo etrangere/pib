@@ -23,7 +23,7 @@ nav{
     color: #fff;
     transition: max-height 0.3s ;
 }
-/*#343131,#fcfcfc,#2980B9   for nav*/
+
 .dropdown:hover {
     background-color: #80605b;
     max-height: 550px;

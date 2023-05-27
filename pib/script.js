@@ -290,10 +290,6 @@ function createButtonset() {
     localStorage.setItem("val",btnmethod.value); 
 }
 
-
-  
-
-
 //function to add prefix to ID tags 
     document.addEventListener("DOMContentLoaded", function() {
 	var elems = document.querySelectorAll("[id]");
