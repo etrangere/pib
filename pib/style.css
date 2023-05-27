@@ -330,17 +330,25 @@ div.remove-container {
 /*project roadmap*/
 
 .road_map{
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: start;
+    background-color:lightgray;
+}
+
+.road_map value{
+   
+    width: 5rem;
 }
 #versions-container {
     display: flex;
     flex-wrap: nowrap;
+    padding-bottom: 0;
   }
   
 .parentro {
-    background-color:lightgray;
+   /*  background-color:lightgray; */
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -368,10 +376,14 @@ div.remove-container {
     .divro3,
     .divro4,
     .divro5 {
-        height: 7rem;
+        height: 15rem;
         width: 15rem;
         border: solid 1px;
-        margin-bottom: 10px;
+        margin-top: 11px;
+    }
+
+    .road_map{
+       display: flex;
     }
 
     .divro6 {
