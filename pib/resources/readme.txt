@@ -19,7 +19,7 @@ The aim of PIB is to help developers and other specialists in IT to consolidate 
 9. To restore information, you can use "Restore Local Storage" in the "Configuration" menu to select the previously backed-up JSON file and restore it.
 
 Additional Notes:
-- For Chrome browser, add the extension "Allow access to local files" for accessing PDFs and other local files.For other browsers check for similar extentions.
+- For Chrome browser, add the extension "Allow access to local files" and "Ignore-X-Frame-Options" for accessing PDFs and other local files.For other browsers check for similar extentions.
 - All office files must be placed in Google Drive with a shared URL, which can then be added as a "resource" using the resource button.
 - Localhost must be configured with a web server like Apache.
 - Prepare the Trello account token and key in one URL and add it in the "Configuration" menu.
