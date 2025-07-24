@@ -35,10 +35,8 @@
 	</div>
 
 	<div>
-		<!-- index.html -->
-		<button onclick="window.location.href='run.php?cmd=start'">Start Server</button>
-		<button onclick="window.location.href='run.php?cmd=stop'">Stop Server</button>
-
+		<button onclick="window.location.href='server-control.php?cmd=start'">Start Server</button>
+		<button onclick="window.location.href='server-control.php?cmd=stop'">Stop Server</button>
 	</div>
 
 
@@ -177,45 +175,7 @@
 		// Update the progress bar on page load
 		updateProgressBar(overallProgress);
 	</script>
-<script>
-	const divider = document.getElementById("divider");
-	const panel1 = document.getElementById("panel1");
 
-	divider.addEventListener("mousedown", function (e) {
-		e.preventDefault();
-		document.addEventListener("mousemove", resize);
-		document.addEventListener("mouseup", stopResize);
-	});
-
-	function resize(e) {
-		const containerWidth = document.getElementById("separatorContainer").offsetWidth;
-		const newWidth = e.clientX;
-		const percent = (newWidth / containerWidth) * 100;
-		panel1.style.flex = "none";
-		panel1.style.width = percent + "%";
-	}
-
-	function stopResize() {
-		document.removeEventListener("mousemove", resize);
-		document.removeEventListener("mouseup", stopResize);
-	}
-
-	// Example: load PDF as blob into iframe (optional if you want to avoid iframe src/X-Frame issues)
-	async function loadPDFInIframe(url, iframeName) {
-		try {
-			const response = await fetch(url);
-			const blob = await response.blob();
-			const objectUrl = URL.createObjectURL(blob);
-			document.getElementsByName(iframeName)[0].src = objectUrl;
-		} catch (e) {
-			alert("Failed to load PDF: " + e.message);
-		}
-	}
-
-	// Usage:
-	// loadPDFInIframe("http://localhost/docs/example.pdf", "left");
-	// loadPDFInIframe("http://localhost/docs/example2.pdf", "right");
-</script>
 
 <script src="script.js"></script>
 	<script src="local_storage_back_restore.js"></script>
