@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <header>
@@ -8,7 +10,7 @@
 		const prefix = prefixraw.slice(0, -1);
 		const currentPath = window.location.pathname;
 		const baseUrl = `http://localhost${currentPath}`;
-		//alert(baseUrl); 
+		//alert(baseUrl);
 	</script>
 </header>
 <body>
@@ -31,6 +33,16 @@
 
 
 	</div>
+
+	<div>
+		<!-- index.html -->
+		<button onclick="window.location.href='run.php?cmd=start'">Start Server</button>
+		<button onclick="window.location.href='run.php?cmd=stop'">Stop Server</button>
+
+	</div>
+
+
+
 	<div class="config_div">
 		<div></div>
 		<!-- config button -->
@@ -47,22 +59,22 @@
 	</div>
 
 
-	<div class="dropdown">  
+	<div class="dropdown">
 
 		<!--create button with name and url-->
 		<div id="button-container"></div>
-		
+
 		<!-- The Modal -->
 		<div id="myModal" class="modal">
 			<!-- Modal content -->
 			<div class="modal-content">
 				<span class="close">&times;</span>
-			
 
-				
+
+
 				<!--create button with name and url-->
 			<h1>Add etape buttons set acording to the method</h1>
-	
+
 			    <form>
 					<select id="method" name="method">
 						<option value="Scrum">Scrum</option>
@@ -82,7 +94,7 @@
 					<input type="text" id="text" name="text" maxlength="26"><br>
 					<label for="color">Select color by theme:</label>
 					<select id="color" name="color">
-						
+
 						<option value="#555555">C++</option>
 						<option value="red">Java</option>
 						<option value="#178600">C#</option>
@@ -92,8 +104,8 @@
 						<option value="#4F5D95">PHP</option>
 						<option value="#adb2cb">VHDL</option>
 						<option value="#f1e05a">JavaScript</option>
-						<option value="#e34c26">HTML</option>			
-						<option value="#00008B">ORM/DB</option>		
+						<option value="#e34c26">HTML</option>
+						<option value="#00008B">ORM/DB</option>
 						<option value="#3572A5">Python</option>
 						<option value="#e38c00">SQL</option>
 						<option value="#0060ac">XML</option>
@@ -120,51 +132,91 @@
 				<p>
 				   <button id="backup-button">Backup Local Storage</button>
 				</p>
-		   
+
 			   <p>
 				   <label for="restore-input">Restore Local Storage:</label>
 				   <input type="file" id="restore-input">
 			   </p>
-			</div>  
-		</div>
-	</div>	
-	
-
-	<div id="" class="separatorContainer">
-		<div id="panel1" class="panel">
-			<div name="tt" class="iframe-wrapper">
-				<iframe name="left" src="" type="application/pdf"></iframe>
-			</div>
-		</div>
-		<div id="divider" class="dividerStyle"></div>
-		<div id="panel2" class="panel">
-			<div class="iframe-wrapper">
-				<iframe width="100%"
-				height="100%"
-				 name="right" src="" type="application/pdf"></iframe>
 			</div>
 		</div>
 	</div>
-	</body>
+
+
+<div id="separatorContainer" class="separatorContainer">
+	<div id="panel1" class="panel">
+		<div class="iframe-wrapper">
+			<iframe name="left" src="" type="application/pdf"></iframe>
+		</div>
+	</div>
+
+	<div id="divider" class="dividerStyle"></div>
+
+	<div id="panel2" class="panel">
+		<div class="iframe-wrapper">
+			<iframe name="right" src="" type="application/pdf"></iframe>
+		</div>
+	</div>
+</div>
+
+</body>
 	</html>
 	<script>
 		// Function to update the progress bar
 		function updateProgressBar(progress) {
 		  document.getElementById("myBar").style.width = progress + "%";
 		}
-	  
+
 		// Retrieve the progress value from localStorage
 		const savedProgress = localStorage.getItem("progress");
 		let overallProgress = 0;
-	  
+
 		if (savedProgress && !isNaN(savedProgress)) {
 		  overallProgress = parseInt(savedProgress, 10);
 		}
-	  
+
 		// Update the progress bar on page load
 		updateProgressBar(overallProgress);
 	</script>
-	
-	<script src="script.js"></script>
+<script>
+	const divider = document.getElementById("divider");
+	const panel1 = document.getElementById("panel1");
+
+	divider.addEventListener("mousedown", function (e) {
+		e.preventDefault();
+		document.addEventListener("mousemove", resize);
+		document.addEventListener("mouseup", stopResize);
+	});
+
+	function resize(e) {
+		const containerWidth = document.getElementById("separatorContainer").offsetWidth;
+		const newWidth = e.clientX;
+		const percent = (newWidth / containerWidth) * 100;
+		panel1.style.flex = "none";
+		panel1.style.width = percent + "%";
+	}
+
+	function stopResize() {
+		document.removeEventListener("mousemove", resize);
+		document.removeEventListener("mouseup", stopResize);
+	}
+
+	// Example: load PDF as blob into iframe (optional if you want to avoid iframe src/X-Frame issues)
+	async function loadPDFInIframe(url, iframeName) {
+		try {
+			const response = await fetch(url);
+			const blob = await response.blob();
+			const objectUrl = URL.createObjectURL(blob);
+			document.getElementsByName(iframeName)[0].src = objectUrl;
+		} catch (e) {
+			alert("Failed to load PDF: " + e.message);
+		}
+	}
+
+	// Usage:
+	// loadPDFInIframe("http://localhost/docs/example.pdf", "left");
+	// loadPDFInIframe("http://localhost/docs/example2.pdf", "right");
+</script>
+
+<script src="script.js"></script>
 	<script src="local_storage_back_restore.js"></script>
-	
+
