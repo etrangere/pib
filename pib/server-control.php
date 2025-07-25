@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: text/plain');
 $pid_file = __DIR__ . '/server.pid';
+$port_file = __DIR__ . '/.pib-port';
 
 if ($_GET['cmd'] === 'start') {
     // Kill any existing server first
@@ -11,7 +12,12 @@ if ($_GET['cmd'] === 'start') {
     if (!empty($out) && is_numeric($out[0])) {
         $pid = $out[0];
         file_put_contents($pid_file, $pid);
-        echo "Started Node.js server. PID: $pid";
+        // Try to read the port number
+        $port = "unknown";
+        if (file_exists($port_file)) {
+            $port = trim(file_get_contents($port_file));
+        }
+        echo "Started Node.js server. PID: $pid, Port: $port";
     } else {
         echo "Failed to start Node.js server";
     }
@@ -26,7 +32,7 @@ if ($_GET['cmd'] === 'start') {
             if ($return_code === 0) {
                 exec("kill -9 $pid 2>/dev/null");
                 unlink($pid_file);
-                echo "✅ Stopped server. PID $pid killed.";
+                echo "Stopped server. PID $pid killed.";
                 $killed = true;
             }
         }
@@ -36,13 +42,21 @@ if ($_GET['cmd'] === 'start') {
     exec("lsof -i :8088 | grep LISTEN | awk '{print $2}' | xargs kill -9 2>/dev/null");
 
     if (!$killed) {
-        echo "✅ Server stopped (killed processes on port 8088)";
+        echo "Server stopped (killed processes on port 8088)";
     }
 
     // Clean up PID file
     if (file_exists($pid_file)) {
         unlink($pid_file);
     }
+
+    // Also try to read the last used port for the message
+    $port = "8088";
+    if (file_exists($port_file)) {
+        $port = trim(file_get_contents($port_file));
+        unlink($port_file); // Clean up port file too
+    }
+    echo "(Port: $port)";
 } else {
-    echo "❌ Invalid command. Use ?cmd=start or ?cmd=stop";
+    echo "Invalid command. Use ?cmd=start or ?cmd=stop";
 }
