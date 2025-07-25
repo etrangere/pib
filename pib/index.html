@@ -28,17 +28,8 @@
 					document.write(localStorage.getItem("val"));
 				}
 			</script>
-
 		</div>
-
-
 	</div>
-
-	<div>
-		<button onclick="window.location.href='server-control.php?cmd=start'">Start Server</button>
-		<button onclick="window.location.href='server-control.php?cmd=stop'">Stop Server</button>
-	</div>
-
 
 
 	<div class="config_div">
@@ -46,7 +37,6 @@
 		<!-- config button -->
 		<div class="button_config_div"><button id="myBtn" class="btnconfig">Configuration</button></div>
 	</div>
-
 </nav>
 
 
@@ -135,6 +125,48 @@
 				   <label for="restore-input">Restore Local Storage:</label>
 				   <input type="file" id="restore-input">
 			   </p>
+				<hr>
+				<div>
+
+					<h1>Embedded Server (if x-frame problem)</h1>
+
+					<button onclick="startServer()">Start Server</button>
+					<button onclick="stopServer()">Stop Server</button>
+
+					<p><strong>System Requirements:</strong></p>
+					<ul>
+						<li><strong>PHP:</strong> Version 8.1.32 or higher</li>
+						<li><strong>Node.js:</strong> Any recent version (tested with Node.js 18+)</li>
+					</ul>
+					<div id="server-status" style="margin-top: 10px; padding: 10px; border: 1px solid #ccc; display: none;"></div>
+					<div style="margin-bottom: 20px; padding: 15px; background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px;">
+
+						<p><strong>Before using the buttons below, please ensure one of the following:</strong></p>
+						<ul>
+							<li><strong>Option 1 (Recommended for development):</strong> Run the Node.js server manually in each pib folder terminal:</li>
+							<li style="margin-left: 20px; font-family: monospace; background-color: #f8f9fa; padding: 5px;">cd /path/to/your/pib/folder && node start_pib_node.js</li>
+							<li><strong>Option 2 (For production):</strong> Configure sudo permissions for automatic start/stop:</li>
+							<li style="margin-left: 20px; font-family: monospace; background-color: #f8f9fa; padding: 5px;">sudo visudo  Add: www-data ALL=(ALL) NOPASSWD: /usr/local/bin/manage-pib-server</li>
+						</ul>
+
+						<h4>X-Frame Issues</h4>
+						<p><strong>If you see "X-Frame-Options deny" errors:</strong></p>
+						<ul>
+							<li>This server serves files only from the current project folder (local security)</li>
+							<li><strong>Solution 1:</strong> Use manual server start (Option 1 above) for better control</li>
+							<li><strong>Solution 2:</strong> Install browser extensions to bypass X-Frame restrictions:</li>
+							<ul>
+								<li><strong>Chrome:</strong> "Ignore X-Frame headers" extension</li>
+								<li><strong>Firefox:</strong> "Ignore X-Frame-Options Header" extension</li>
+								<li><strong>Edge:</strong> "X-Frame-Bypass" extension</li>
+							</ul>
+							<li><strong>Development tip:</strong> Use direct file URLs in new tabs for testing</li>
+						</ul>
+
+						<p><strong>Security Note:</strong> Never give full sudo access to www-data on production servers!</p>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -176,6 +208,37 @@
 		updateProgressBar(overallProgress);
 	</script>
 
+<script>
+	function startServer() {
+		const statusDiv = document.getElementById('server-status');
+		statusDiv.style.display = 'block';
+		statusDiv.innerHTML = '🔄 Starting server...';
+
+		fetch('server-control.php?cmd=start')
+				.then(response => response.text())
+				.then(data => {
+					statusDiv.innerHTML = data;
+				})
+				.catch(error => {
+					statusDiv.innerHTML = '❌ Error: ' + error;
+				});
+	}
+
+	function stopServer() {
+		const statusDiv = document.getElementById('server-status');
+		statusDiv.style.display = 'block';
+		statusDiv.innerHTML = '🔄 Stopping server...';
+
+		fetch('server-control.php?cmd=stop')
+				.then(response => response.text())
+				.then(data => {
+					statusDiv.innerHTML = data;
+				})
+				.catch(error => {
+					statusDiv.innerHTML = '❌ Error: ' + error;
+				});
+	}
+</script>
 
 <script src="script.js"></script>
 	<script src="local_storage_back_restore.js"></script>
