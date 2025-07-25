@@ -11,9 +11,9 @@ if ($_GET['cmd'] === 'start') {
     if (!empty($out) && is_numeric($out[0])) {
         $pid = $out[0];
         file_put_contents($pid_file, $pid);
-        echo "✅ Started Node.js server. PID: $pid";
+        echo "Started Node.js server. PID: $pid";
     } else {
-        echo "❌ Failed to start Node.js server";
+        echo "Failed to start Node.js server";
     }
 } elseif ($_GET['cmd'] === 'stop') {
     $killed = false;

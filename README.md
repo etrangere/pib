@@ -20,6 +20,12 @@ The aim of PIB is to help developers and other specialists in IT to consolidate 
 
 Additional Notes:
 - For Chrome browser, add the extension "Allow access to local files" for accessing PDFs and other local files.For other browsers check for similar extentions.
+- If you see "X-Frame-Options deny" errors, try to install these extensions:
+  - Chrome: "Ignore X-Frame headers" extension
+  - Firefox: "Ignore X-Frame-Options Header" extension
+  - Edge: "X-Frame-Bypass" extension  
+  - If none of these work, use the Embedded Server of PIB, but this time you need to place all resource files inside the PIB resources folder - it will serve only files inside this folder, not all files from PC, so it's preferable to try extensions to be able to add any file from PC to PIB. Users can add parallel PIB folders with no problem - each folder will automatically start its own instance of the server. Note: Pay attention to permissions - you may need to add sudoers permissions to the user or execute the command manually from the terminal. Check the server section for specific permission requirements.
+  
 - All office files must be placed in Google Drive with a shared URL, which can then be added as a "resource" using the resource button.
 - Localhost must be configured with a web server like Apache.
 - Prepare the Trello account token and key in one URL and add it in the "Configuration" menu.
