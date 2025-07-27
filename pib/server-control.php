@@ -108,4 +108,3 @@ if ($_GET['cmd'] === 'start') {
 } else {
     echo "Invalid command. Use ?cmd=start, ?cmd=stop or ?cmd=status\n";
 }
-echo json_encode(['port' => $port]);
