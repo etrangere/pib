@@ -1,0 +1,205 @@
+[27-Jul-2025 01:05:45 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:05:45 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:05:45 Europe/Berlin] Server root: /var/www/69.pib/pib
+[27-Jul-2025 01:05:45 Europe/Berlin] Requested Path: 
+[27-Jul-2025 01:05:45 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:05:46 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:05:46 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:05:46 Europe/Berlin] Server root: /var/www/69.pib/pib
+[27-Jul-2025 01:05:46 Europe/Berlin] Requested Path: 
+[27-Jul-2025 01:05:46 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:05:46 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:05:46 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:05:46 Europe/Berlin] Server root: /var/www/69.pib/pib
+[27-Jul-2025 01:05:46 Europe/Berlin] Requested Path: 
+[27-Jul-2025 01:05:46 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:05:46 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:05:46 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:05:46 Europe/Berlin] Server root: /var/www/69.pib/pib
+[27-Jul-2025 01:05:46 Europe/Berlin] Requested Path: 
+[27-Jul-2025 01:05:46 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:05:55 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:05:55 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:05:55 Europe/Berlin] Server root: /var/www/69.pib/pib
+[27-Jul-2025 01:05:55 Europe/Berlin] Requested Path: 
+[27-Jul-2025 01:05:55 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:05:56 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:05:56 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:05:56 Europe/Berlin] Server root: /var/www/69.pib/pib
+[27-Jul-2025 01:05:56 Europe/Berlin] Requested Path: 
+[27-Jul-2025 01:05:56 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:07:56 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:07:56 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:07:56 Europe/Berlin] Server root: /var/www/69.pib
+[27-Jul-2025 01:07:56 Europe/Berlin] Requested Path: 
+[27-Jul-2025 01:07:56 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:08:06 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:08:06 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:08:06 Europe/Berlin] Server root: /var/www/69.pib
+[27-Jul-2025 01:08:06 Europe/Berlin] Requested Path: 
+[27-Jul-2025 01:08:06 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:09:58 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:09:58 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:09:58 Europe/Berlin] Server root: /var/www/69.pib
+[27-Jul-2025 01:09:58 Europe/Berlin] Requested Path: 
+[27-Jul-2025 01:09:58 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:10:26 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:10:26 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:10:26 Europe/Berlin] Server root: /var/www/69.pib
+[27-Jul-2025 01:10:26 Europe/Berlin] Requested Path: 
+[27-Jul-2025 01:10:26 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:12:06 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:12:06 Europe/Berlin] Relative path after removing project folder: pib/resources/readme.txt
+[27-Jul-2025 01:12:06 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:12:06 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:12:06 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:12:07 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:12:07 Europe/Berlin] Relative path after removing project folder: pib/resources/readme.txt
+[27-Jul-2025 01:12:07 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:12:07 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:12:07 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:12:18 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:12:18 Europe/Berlin] Relative path after removing project folder: pib/resources/readme.txt
+[27-Jul-2025 01:12:18 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:12:18 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:12:18 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:12:19 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:12:19 Europe/Berlin] Relative path after removing project folder: pib/resources/readme.txt
+[27-Jul-2025 01:12:19 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:12:19 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:12:19 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:12:19 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:12:19 Europe/Berlin] Relative path after removing project folder: pib/resources/readme.txt
+[27-Jul-2025 01:12:19 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:12:19 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:12:19 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:12:20 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:12:20 Europe/Berlin] Relative path after removing project folder: pib/resources/readme.txt
+[27-Jul-2025 01:12:20 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:12:20 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:12:20 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:12:20 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:12:20 Europe/Berlin] Relative path after removing project folder: pib/resources/readme.txt
+[27-Jul-2025 01:12:20 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:12:20 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:12:20 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:12:20 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:12:20 Europe/Berlin] Relative path after removing project folder: pib/resources/readme.txt
+[27-Jul-2025 01:12:20 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:12:20 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:12:20 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:12:20 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:12:20 Europe/Berlin] Relative path after removing project folder: pib/resources/readme.txt
+[27-Jul-2025 01:12:20 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:12:20 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:12:20 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:12:21 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:12:21 Europe/Berlin] Relative path after removing project folder: pib/resources/readme.txt
+[27-Jul-2025 01:12:21 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:12:21 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:12:21 Europe/Berlin] Root Path: /var/www/69.pib/pib
+[27-Jul-2025 01:21:31 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:31 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:31 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:21:31 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:21:31 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:21:32 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:32 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:32 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:21:32 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:21:32 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:21:40 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:40 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:40 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:21:40 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:21:40 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:21:41 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:41 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:41 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:21:41 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:21:41 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:21:41 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:41 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:41 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:21:41 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:21:41 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:21:41 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:41 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:41 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:21:41 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:21:41 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:21:42 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:42 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:21:42 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:21:42 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:21:42 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:22:26 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:26 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:26 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:22:26 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:22:26 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:22:27 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:27 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:27 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:22:27 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:22:27 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:22:27 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:27 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:27 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:22:27 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:22:27 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:22:27 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:27 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:27 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:22:27 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:22:27 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:22:27 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:27 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:27 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:22:27 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:22:27 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:22:38 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:38 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:38 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:22:38 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:22:38 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:22:39 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:39 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:39 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:22:39 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:22:39 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:22:40 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:40 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:40 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:22:40 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:22:40 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:22:40 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:40 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:22:40 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:22:40 Europe/Berlin] Server root: /var
+[27-Jul-2025 01:22:40 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:23:02 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:23:02 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:23:02 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:23:02 Europe/Berlin] Server root: /
+[27-Jul-2025 01:23:02 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:23:16 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:23:16 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:23:16 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:23:16 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:23:16 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:24:18 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:24:18 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:24:18 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:24:18 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:24:18 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:25:59 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:25:59 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:25:59 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 01:25:59 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:25:59 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 01:28:33 Europe/Berlin] Requested URI: /resources/readme.txt
+[27-Jul-2025 01:28:33 Europe/Berlin] Relative path: resources/readme.txt
+[27-Jul-2025 01:28:33 Europe/Berlin] Resolved path: 
+[27-Jul-2025 01:28:33 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 01:28:33 Europe/Berlin] Router location: /var/www/69.pib/pib

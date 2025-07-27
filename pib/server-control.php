@@ -2,61 +2,109 @@
 header('Content-Type: text/plain');
 $pid_file = __DIR__ . '/server.pid';
 $port_file = __DIR__ . '/.pib-port';
+$host = '127.0.0.1';
+$default_port = 8088;
+$port = $default_port;
+
+function isPortFree($port) {
+    $connection = @fsockopen('127.0.0.1', $port);
+    if (is_resource($connection)) {
+        fclose($connection);
+        return false;
+    }
+    return true;
+}
+
+function isPhpServerRunning($pid, $port) {
+    $output = [];
+    exec("ps -p $pid -o cmd=", $output);
+    if (!empty($output[0])) {
+        return str_contains($output[0], "php -S 127.0.0.1:$port");
+    }
+    return false;
+}
+
+// Load saved port if exists
+if (file_exists($port_file)) {
+    $saved_port = intval(trim(file_get_contents($port_file)));
+    if ($saved_port > 0) {
+        $port = $saved_port;
+    }
+}
 
 if ($_GET['cmd'] === 'start') {
-    // Kill any existing server first
-    exec("lsof -i :8088 | grep LISTEN | awk '{print $2}' | xargs kill -9 2>/dev/null");
+    // Check if server already running
+    if (file_exists($pid_file)) {
+        $pid = intval(trim(file_get_contents($pid_file)));
+        if ($pid > 0 && isPhpServerRunning($pid, $port)) {
+            echo "Server already running on http://$host:$port/ (PID: $pid)\n";
+            exit;
+        } else {
+            // Stale PID, remove it
+            unlink($pid_file);
+        }
+    }
 
-    // Start Node.js server
-    exec("cd " . __DIR__ . " && node start_pib_node.js > /dev/null 2>&1 & echo $!", $out);
-    if (!empty($out) && is_numeric($out[0])) {
-        $pid = $out[0];
+    // If port is not free AND not our own server, abort
+    if (!isPortFree($port)) {
+        echo "ERROR: Port $port is already in use.\n";
+        echo "Please free this port or delete " . basename($port_file) . " to choose a new port.\n";
+        exit(1);
+    }
+
+    // Start server
+    $cmd = sprintf(
+        'php -S %s:%d -t %s %s > /dev/null 2>&1 & echo $!',
+        $host,
+        $port,
+        escapeshellarg(__DIR__),
+        escapeshellarg(__DIR__ . '/router.php')
+    );
+    exec($cmd, $output);
+    $pid = intval($output[0] ?? 0);
+
+    if ($pid > 0) {
         file_put_contents($pid_file, $pid);
-        // Try to read the port number
-        $port = "unknown";
-        if (file_exists($port_file)) {
-            $port = trim(file_get_contents($port_file));
+        if (!file_exists($port_file)) {
+            file_put_contents($port_file, $port);
         }
-        echo "Started Node.js server. PID: $pid, Port: $port";
+        echo "Started PHP built-in server on http://$host:$port/ PID: $pid\n";
     } else {
-        echo "Failed to start Node.js server";
+        echo "Failed to start PHP server\n";
     }
+
 } elseif ($_GET['cmd'] === 'stop') {
-    $killed = false;
-
-    // Try to kill by PID file
     if (file_exists($pid_file)) {
-        $pid = trim(file_get_contents($pid_file));
-        if (is_numeric($pid) && !empty($pid)) {
-            exec("kill -0 $pid 2>/dev/null", $output, $return_code);
-            if ($return_code === 0) {
-                exec("kill -9 $pid 2>/dev/null");
-                unlink($pid_file);
-                echo "Stopped server. PID $pid killed.";
-                $killed = true;
-            }
+        $pid = intval(trim(file_get_contents($pid_file)));
+        if ($pid > 0 && isPhpServerRunning($pid, $port)) {
+            exec("kill -9 $pid 2>/dev/null");
+            unlink($pid_file);
+            echo "Stopped server on port $port (PID: $pid)\n";
+        } else {
+            echo "No active PHP server found for PID: $pid\n";
+            unlink($pid_file); // Clean up stale PID
         }
+    } else {
+        echo "No running server found\n";
     }
 
-    // Kill any remaining server on port 8088
-    exec("lsof -i :8088 | grep LISTEN | awk '{print $2}' | xargs kill -9 2>/dev/null");
-
-    if (!$killed) {
-        echo "Server stopped (killed processes on port 8088)";
-    }
-
-    // Clean up PID file
+} elseif ($_GET['cmd'] === 'status') {
+    header('Content-Type: application/json');
     if (file_exists($pid_file)) {
-        unlink($pid_file);
+        $pid = intval(trim(file_get_contents($pid_file)));
+        if ($pid > 0 && isPhpServerRunning($pid, $port)) {
+            echo json_encode([
+                'status' => 'running',
+                'pid' => $pid,
+                'port' => $port,
+            ]);
+        } else {
+            echo json_encode(['status' => 'stopped']);
+        }
+    } else {
+        echo json_encode(['status' => 'stopped']);
     }
 
-    // Also try to read the last used port for the message
-    $port = "8088";
-    if (file_exists($port_file)) {
-        $port = trim(file_get_contents($port_file));
-        unlink($port_file); // Clean up port file too
-    }
-    echo "(Port: $port)";
 } else {
-    echo "Invalid command. Use ?cmd=start or ?cmd=stop";
+    echo "Invalid command. Use ?cmd=start, ?cmd=stop or ?cmd=status\n";
 }

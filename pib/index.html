@@ -136,7 +136,6 @@
 					<p><strong>System Requirements:</strong></p>
 					<ul>
 						<li><strong>PHP:</strong> Version 8.1.32 or higher</li>
-						<li><strong>Node.js:</strong> Any recent version (tested with Node.js 18+)</li>
 					</ul>
 					<div id="server-status" style="margin-top: 10px; padding: 10px; border: 1px solid #ccc; display: none;"></div>
 					<div style="margin-bottom: 20px; padding: 15px; background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px;">
@@ -209,36 +208,49 @@
 	</script>
 
 <script>
-	function startServer() {
-		const statusDiv = document.getElementById('server-status');
-		statusDiv.style.display = 'block';
-		statusDiv.innerHTML = '🔄 Starting server...';
+	const statusDiv = document.getElementById('server-status');
 
-		fetch('server-control.php?cmd=start')
-				.then(response => response.text())
+	function updateStatus() {
+		fetch('./server-control.php?cmd=status')
+				.then(response => response.json())
 				.then(data => {
-					statusDiv.innerHTML = data;
+					statusDiv.style.display = 'block';
+					if (data.status === 'running') {
+						statusDiv.innerHTML = `<strong>Server is running</strong> on port <code>${data.port}</code> (PID: ${data.pid})`;
+					} else {
+						statusDiv.innerHTML = '<strong>Server is stopped.</strong>';
+					}
 				})
-				.catch(error => {
-					statusDiv.innerHTML = '❌ Error: ' + error;
+				.catch(() => {
+					statusDiv.style.display = 'block';
+					statusDiv.innerHTML = '<strong>Failed to fetch server status.</strong>';
 				});
+	}
+
+	function startServer() {
+		fetch('./server-control.php?cmd=start')
+				.then(response => response.text())
+				.then(text => {
+					alert(text);
+					updateStatus();
+				})
+				.catch(() => alert('Failed to start server.'));
 	}
 
 	function stopServer() {
-		const statusDiv = document.getElementById('server-status');
-		statusDiv.style.display = 'block';
-		statusDiv.innerHTML = '🔄 Stopping server...';
-
-		fetch('server-control.php?cmd=stop')
+		fetch('./server-control.php?cmd=stop')
 				.then(response => response.text())
-				.then(data => {
-					statusDiv.innerHTML = data;
+				.then(text => {
+					alert(text);
+					updateStatus();
 				})
-				.catch(error => {
-					statusDiv.innerHTML = '❌ Error: ' + error;
-				});
+				.catch(() => alert('Failed to stop server.'));
 	}
+
+	// Initial status on page load
+	updateStatus();
 </script>
+
 
 <script src="script.js"></script>
 	<script src="local_storage_back_restore.js"></script>
