@@ -1,4 +1,22 @@
 //API
+
+const jsonStorage = {
+    async getItem(key) {
+        const res = await fetch(`/json-storage.php?key=${encodeURIComponent(key)}`);
+        const data = await res.json();
+        return data.value ?? null;
+    },
+    async setItem(key, value) {
+        const res = await fetch('/json-storage.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ key, value }),
+        });
+        const result = await res.json();
+        return result.success === true;
+    }
+};
+
 // Function to update and retrieve the apiURL value
 function updateApiURL(value) {
     if (value) {
@@ -390,8 +408,8 @@ function createButton() {
     localStorage.setItem("buttons", JSON.stringify(buttons));
 }
 
-// read the value of method button from storage and preset in option
-onload =function(){
+    // read the value of method button from storage and preset in option
+    onload =function(){
     if (localStorage.getItem("val")) {  
         document.getElementById("method").value=localStorage.getItem("val");   
         btnselect.onclick();   
