@@ -26,11 +26,11 @@ const jsonStorage = {
     }
 };
 // Function to update and retrieve the apiURL value
-function updateApiURL(value) {
+async function updateApiURL(value) {
     if (value) {
-        localStorage.setItem("apiURL", value);
+        await jsonStorage.setItem("apiURL", value);
     }
-    return localStorage.getItem("apiURL");
+    return await jsonStorage.getItem("apiURL");
 }
 
 
@@ -43,25 +43,31 @@ function handleClickAPI() {
 }
 
 // Function to lock button after one click
-function block_button_api() {
+async function block_button_api() {
     let button_api = document.getElementById("btnselectapi");
     let api_url_value = document.getElementById("urlapi");
-    button_api.disabled = true;
-    localStorage.setItem("buttonDisabled", "true");
-    localStorage.setItem("apiURL", api_url_value.value);
-
+    if (button_api) {
+        button_api.disabled = true;
+    }
+    await jsonStorage.setItem("buttonDisabled", "true");
+    await jsonStorage.setItem("apiURL", api_url_value?.value || ""); // Gestion de la valeur potentiellement null/undefined
 }
 
 // Function to retrieve the disabled state and URL value and apply them on page load
-function applyButtonState() {
+async function applyButtonState() {
     let button_api = document.getElementById("btnselectapi");
-    let isButtonDisabled = localStorage.getItem("buttonDisabled");
+    let isButtonDisabled = await jsonStorage.getItem("buttonDisabled");
 
-
-    if (isButtonDisabled === "true") {
+    if (isButtonDisabled === "true" && button_api) {
         button_api.disabled = true;
-    } else {
+    } else if (button_api) {
         button_api.disabled = false;
+    }
+    // Optionnel : pré-remplir également le champ URL API
+    let savedApiURL = await jsonStorage.getItem("apiURL");
+    let api_url_input = document.getElementById("urlapi");
+    if (savedApiURL && api_url_input) {
+        api_url_input.value = savedApiURL;
     }
 }
 

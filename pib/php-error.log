@@ -326,3 +326,102 @@
 [27-Jul-2025 23:07:57 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
 [27-Jul-2025 23:07:57 Europe/Berlin] Server root: /var/www
 [27-Jul-2025 23:07:57 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 23:10:20 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:10:20 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:10:20 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:10:20 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 23:10:20 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 23:10:20 Europe/Berlin] Requested URI: /favicon.ico
+[27-Jul-2025 23:10:20 Europe/Berlin] Relative path: favicon.ico
+[27-Jul-2025 23:10:20 Europe/Berlin] Resolved path: 
+[27-Jul-2025 23:10:20 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 23:10:20 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 23:10:25 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:10:25 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:10:25 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:10:59 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:10:59 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:10:59 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:11:47 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:11:47 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:11:47 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:12:01 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:12:01 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:12:01 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:24:29 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:24:29 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:24:29 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:31:25 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:31:25 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:31:25 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:31:34 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:49:38 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:49:38 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:49:38 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:49:38 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:49:38 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:49:47 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:49:47 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:49:47 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:49:47 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:49:47 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:50:01 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:50:01 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:50:06 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:50:06 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:50:06 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:50:06 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:50:06 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:01 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:04 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:05 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:10 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:14 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:18 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:18 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:18 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:18 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:18 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:19 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:19 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:19 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:19 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 23:51:19 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 23:51:21 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:21 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:21 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:21 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 23:51:21 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 23:51:21 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:21 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:21 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:21 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 23:51:21 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 23:51:23 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:23 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:23 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:23 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 23:51:23 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 23:51:24 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:24 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:24 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:24 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 23:51:24 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 23:51:24 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:24 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:24 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:24 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 23:51:24 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 23:51:38 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:51:41 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:41 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:41 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[27-Jul-2025 23:51:41 Europe/Berlin] Server root: /var/www
+[27-Jul-2025 23:51:41 Europe/Berlin] Router location: /var/www/69.pib/pib
+[27-Jul-2025 23:52:24 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:52:24 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:52:30 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:52:30 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:52:30 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:52:30 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[27-Jul-2025 23:52:30 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
