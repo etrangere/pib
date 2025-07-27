@@ -1,8 +1,14 @@
 <?php
+ini_set('log_errors', '1');
+ini_set('error_log', __DIR__ . '/php-error.log');
+
+
 header('Content-Type: application/json');
 
 $path = __DIR__ . '/db.json';
 
+
+error_log("Path in json-storage: $path");
 // Create the file if it doesn't exist
 if (!file_exists($path)) {
     file_put_contents($path, json_encode([], JSON_PRETTY_PRINT));

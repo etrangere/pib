@@ -2,7 +2,7 @@
 const jsonStorage = {
     async getItem(key) {
         try {
-            const res = await fetch(`/json-storage.php?key=${encodeURIComponent(key)}`);
+            const res = await fetch(`json-storage.php?key=${encodeURIComponent(key)}`);
             const data = await res.json();
             return data.value ?? null;
         } catch (error) {
@@ -12,7 +12,7 @@ const jsonStorage = {
     },
     async setItem(key, value) {
         try {
-            const res = await fetch('/json-storage.php', {
+            const res = await fetch('json-storage.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ key, value }),
