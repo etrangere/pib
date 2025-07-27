@@ -1,3 +1,5 @@
+//base URL
+
 //API
 const jsonStorage = {
     async getItem(key) {
@@ -470,7 +472,22 @@ async function createButton() { // Make the function async
     buttons.push(buttonInfo);
     await jsonStorage.setItem("buttons", JSON.stringify(buttons)); // Use await jsonStorage
 
-} 
 
- 
- 
+
+}
+
+// read the value of method button from storage and preset in option
+window.addEventListener('load', async function () {
+    const savedMethod = await jsonStorage.getItem("val");
+    if (savedMethod) {
+        const methodSelect = document.getElementById("method");
+        if (methodSelect) {
+            methodSelect.value = savedMethod;
+            // Attempt to trigger button set creation
+            const btnSelect = document.getElementById("btnselect");
+            if (btnSelect && typeof btnSelect.onclick === 'function') {
+                btnSelect.onclick();
+            }
+        }
+    }
+});

@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <script>
-        const prefix = window.location.pathname.replace(/\/{2,}/g, '/');
+        const prefix = window.location.pathname.replace(/\/{2,}/g, '/').replace('.html', '');
         const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
-        const baseUrl = `http://localhost${currentPath}`;
+        const port = window.location.port;
+        // 'prefix' ici au lieu de 'currentPath'
+        const baseUrl = `http://localhost:${port}${prefix}`;
         //alert(prefix);
     </script>
     <title>Project vision</title>

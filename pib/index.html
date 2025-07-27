@@ -6,10 +6,11 @@
 	<title>PIB</title>
 	<link rel="stylesheet" href="style.css">
 	<script>
-		const prefixraw = window.location.pathname;
-		const prefix = prefixraw.slice(0, -1);
-		const currentPath = window.location.pathname;
-		const baseUrl = `http://localhost${currentPath}`;
+		const prefix = window.location.pathname.replace(/\/{2,}/g, '/').replace('.html', '');
+		const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
+		const port = window.location.port;
+		// 'prefix' ici au lieu de 'currentPath'
+		const baseUrl = `http://localhost:${port}${prefix}`;
 		//alert(baseUrl);
 	</script>
 </header>
@@ -262,7 +263,22 @@
 		}
 	});
 </script>
+<script>
+	// Nettoyer le chemin de l'URL courante et retirer '.html' pour obtenir le préfixe du répertoire
+	const prefixraw1 = window.location.pathname.replace(/\/{2,}/g, '/');
+	const prefix1 = prefixraw1.endsWith('.html') ? prefixraw1.slice(0, -5) : prefixraw1;
 
+	// Utiliser window.location.origin pour inclure protocole, hostname et port
+	// Puis concaténer avec le prefix pour obtenir l'URL de base.
+	const baseUrl1 = `${window.location.origin}${prefix1}`;
+
+	// --- Pour le débogage ---
+	// Affiche les valeurs dans la console du navigateur
+	console.log("prefix:", prefix1);
+	console.log("window.location.origin:", window.location.origin);
+	console.log("Constructed baseUrl:", baseUrl1);
+	// ------------------------
+</script>
 
 <script src="script.js"></script>
 <script src="local_storage_back_restore.js"></script>

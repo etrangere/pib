@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        const prefix = window.location.pathname.replace(/\/{2,}/g, '/');
+        const prefix = window.location.pathname.replace(/\/{2,}/g, '/').replace('.html', '');
         const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
-        const baseUrl = `http://localhost${currentPath}`;
+        const port = window.location.port;
+        // 'prefix' ici au lieu de 'currentPath'
+        const baseUrl = `http://localhost:${port}${prefix}`;
         // alert(prefix);
     </script>
     <title>Developpement</title>
