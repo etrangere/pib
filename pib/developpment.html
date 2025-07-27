@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-      const prefix = window.location.pathname.replace(/\/{2,}/g, '/');
-      const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
-      const baseUrl = `http://localhost${currentPath}`;
-     // alert(prefix); 
+        const prefix = window.location.pathname.replace(/\/{2,}/g, '/');
+        const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
+        const baseUrl = `http://localhost${currentPath}`;
+        // alert(prefix);
     </script>
     <title>Developpement</title>
 </head>
@@ -25,179 +25,179 @@
 
 <h1>Developpement</h1>
 <!-- Create a container div for the textareas-->
-<div id="textarea-container"> 
-    
+<div id="textarea-container">
+
     <p><ul>
-        <li><label for="conception">Validate</label><input id="conception" type="checkbox" ><label for="conception">Ignore</label><input id="conceptioni" type="checkbox" >Conseption MCD/MLD/UML</li>
-        <li><label for="crud">Validate</label><input id="crud" type="checkbox" ><label for="crudi">Ignore</label><input id="crudi" type="checkbox" >CRUD/BDD</li>
-        <li><label for="front">Validate</label><input id="front" type="checkbox" ><label for="fronti">Ignore</label><input id="fronti" type="checkbox" >FRONT-END</li>
-        <li><label for="back">Validate</label><input id="back" type="checkbox" ><label for="backi">Ignore</label><input id="backi" type="checkbox" >BACK-END</li>
-        <li><label for="test">Validate</label><input id="test" type="checkbox" ><label for="testi">Ignore</label><input id="testi" type="checkbox" >TESTING</li>
-        <li><label for="correction">Validate</label><input id="correction" type="checkbox" ><label for="correctioni">Ignore</label><input id="correctioni" type="checkbox" >Correction/Code Refactor</li>
-        <li><label for="documentation">Validate</label><input id="documentation" type="checkbox" ><label for="documentationi">Ignore</label><input id="documentationi" type="checkbox" >Documentation/Update</li>
-    </ul>
-    
+    <li><label for="conception">Validate</label><input id="conception" type="checkbox" ><label for="conception">Ignore</label><input id="conceptioni" type="checkbox" >Conseption MCD/MLD/UML</li>
+    <li><label for="crud">Validate</label><input id="crud" type="checkbox" ><label for="crudi">Ignore</label><input id="crudi" type="checkbox" >CRUD/BDD</li>
+    <li><label for="front">Validate</label><input id="front" type="checkbox" ><label for="fronti">Ignore</label><input id="fronti" type="checkbox" >FRONT-END</li>
+    <li><label for="back">Validate</label><input id="back" type="checkbox" ><label for="backi">Ignore</label><input id="backi" type="checkbox" >BACK-END</li>
+    <li><label for="test">Validate</label><input id="test" type="checkbox" ><label for="testi">Ignore</label><input id="testi" type="checkbox" >TESTING</li>
+    <li><label for="correction">Validate</label><input id="correction" type="checkbox" ><label for="correctioni">Ignore</label><input id="correctioni" type="checkbox" >Correction/Code Refactor</li>
+    <li><label for="documentation">Validate</label><input id="documentation" type="checkbox" ><label for="documentationi">Ignore</label><input id="documentationi" type="checkbox" >Documentation/Update</li>
+</ul>
+
     <textarea   rows="5" cols="110"></textarea>
     </p>
-     
 
 
 
-</div>    
+
+</div>
 </body>
 </html>
 
 <script>
- 
-  // Define the increment value
-  let incrementValue = 12; // Set the initial value
- //Change value with method selection
-   let methoddev = localStorage.getItem("val");
- 
-     if(methoddev == "Kanban"){
-       incrementValue = 34;
-     }
-  
- 
-   // Function to update the progress bar and save the value
-   function updateProgressBar(stepId) {
-     // Get the step checkbox by its ID
-     const stepCheckbox = document.getElementById(stepId);
- 
-     // Check if the step checkbox element exists
-     if (!stepCheckbox) {
-       console.error("Step checkbox not found!");
-       return;
-     }
- 
-     // Calculate the progress increment
-     const progressIncrement = stepCheckbox.checked ? incrementValue : -incrementValue;
- 
-     // Retrieve the overall progress value from localStorage
-     const savedProgress = localStorage.getItem("progress");
-     let overallProgress = 0;
- 
-     if (savedProgress && !isNaN(savedProgress)) {
-       overallProgress = parseInt(savedProgress, 10);
-     }
- 
-     // Update the overall progress by adding the current progress increment
-     overallProgress += progressIncrement;
- 
-     // Save the overall progress value to localStorage
-     localStorage.setItem("progress", overallProgress.toString());
- 
-     // Save the checked state of the step checkbox to localStorage
-     localStorage.setItem(stepId, stepCheckbox.checked ? "checked" : "unchecked");
- 
-     // Update the width of the progress bar
-     document.getElementById("myBar").style.width = overallProgress + "%";
-   }
- 
-   // Check if progress value exists in localStorage on page load
-   document.addEventListener("DOMContentLoaded", function() {
-     // Retrieve the overall progress value from localStorage
-     const savedProgress = localStorage.getItem("progress");
-     let overallProgress = 0;
- 
-     if (savedProgress && !isNaN(savedProgress)) {
-       overallProgress = parseInt(savedProgress, 10);
-     }
- 
-     // Get the step checkbox by its ID
-     const stepCheckbox = document.getElementById("step6");
- 
-     // Check if the step checkbox element exists
-     if (!stepCheckbox) {
-       console.error("Step checkbox not found!");
-       return;
-     }
- 
-     // Retrieve the checked state of the step checkbox from localStorage
-     const savedCheckboxValue = localStorage.getItem("step6");
-     if (savedCheckboxValue === "checked") {
-       stepCheckbox.checked = true;
-       overallProgress += incrementValue;
-     } else {
-       stepCheckbox.checked = false;
-     }
- 
-     // Update the width of the progress bar with the overall progress value
-     document.getElementById("myBar").style.width = overallProgress + "%";
-   });
- </script>
-<script>
+    // Define the increment value
+    let incrementValue = 12; // Set the initial value
 
+    // Change value with method selection
+    (async function initializeMethod() {
+        const methoddev = await jsonStorage.getItem("val");
+        if (methoddev === "Kanban") {
+            incrementValue = 34;
+        }
+    })();
 
-  const textareaContainer = document.getElementById("textarea-container");
-  const textareas = textareaContainer.getElementsByTagName("textarea");
-  const checkboxes = textareaContainer.querySelectorAll("input[type='checkbox']");
+    // Function to update the progress bar and save the value
+    async function updateProgressBar(stepId) {
+        // Get the step checkbox by its ID
+        const stepCheckbox = document.getElementById(stepId);
 
-  let formValues = {};
+        // Check if the step checkbox element exists
+        if (!stepCheckbox) {
+            console.error("Step checkbox not found!");
+            return;
+        }
 
-  let counter = 0; // initialize counter variable
+        // Calculate the progress increment
+        const isChecked = stepCheckbox.checked;
+        const progressIncrement = isChecked ? incrementValue : -incrementValue;
 
-  for (let i = 0; i < textareas.length + checkboxes.length; i++) {
-    if (i < textareas.length) {
-      const textarea = textareas[i];
-      const id = prefix + (counter + 1);
-      textarea.id = id;
-      formValues[id] = textarea.value;
-      textarea.addEventListener("input", (event) => {
-        formValues[id] = event.target.value;
-        localStorage.setItem("formValues", JSON.stringify(formValues));
-      });
-      counter++; // increment counter variable
-    } else {
-      const checkbox = checkboxes[i - textareas.length];
-      const id = prefix + (counter + 1);
-      checkbox.id = id;
-      formValues[id] = checkbox.checked;
-      checkbox.addEventListener("change", (event) => {
-        formValues[id] = event.target.checked;
-        localStorage.setItem("formValues", JSON.stringify(formValues));
-      });
-      counter++; // increment counter variable
+        // Retrieve the overall progress value from jsonStorage
+        let overallProgress = 0;
+        const savedProgress = await jsonStorage.getItem("progress");
+
+        if (savedProgress !== null && !isNaN(savedProgress)) {
+            overallProgress = parseInt(savedProgress, 10);
+        }
+
+        // Update the overall progress by adding the current progress increment
+        overallProgress += progressIncrement;
+
+        // Save the overall progress value to jsonStorage
+        await jsonStorage.setItem("progress", overallProgress.toString());
+
+        // Save the checked state of the step checkbox to jsonStorage
+        await jsonStorage.setItem(stepId, isChecked ? "checked" : "unchecked");
+
+        // Update the width of the progress bar
+        document.getElementById("myBar").style.width = overallProgress + "%";
     }
-  }
-  
-  const savedFormValues = localStorage.getItem("formValues");
-  
-  if (savedFormValues) {
-    formValues = JSON.parse(savedFormValues);
-    for (const id in formValues) {
-      if (formValues.hasOwnProperty(id)) {
-        const element = document.getElementById(id);
-        if (element) {
-          if (element.tagName === "TEXTAREA") {
-            element.value = formValues[id];
-          } else if (element.tagName === "INPUT" && element.type === "checkbox") {
-            element.checked = formValues[id];
-          }
+
+    // Check if progress value exists in jsonStorage on page load
+    document.addEventListener("DOMContentLoaded", async function () {
+        // Retrieve the overall progress value from jsonStorage
+        let overallProgress = 0;
+        const savedProgress = await jsonStorage.getItem("progress");
+
+        if (savedProgress !== null && !isNaN(savedProgress)) {
+            overallProgress = parseInt(savedProgress, 10);
+        }
+
+        // Get the step checkbox by its ID
+        const stepCheckbox = document.getElementById("step6");
+
+        // Check if the step checkbox element exists
+        if (!stepCheckbox) {
+            console.error("Step checkbox not found!");
+            return;
+        }
+
+        // Retrieve the checked state of the step checkbox from jsonStorage
+        const savedCheckboxValue = await jsonStorage.getItem("step6");
+        if (savedCheckboxValue === "checked") {
+            stepCheckbox.checked = true;
+            overallProgress += incrementValue;
         } else {
-          console.warn(`Element with id "${id}" not found on page`);
+            stepCheckbox.checked = false;
         }
-      }
-    }
-  }
-  
-  const updateButton = document.getElementById("update-button-all");
-  updateButton.addEventListener("click", () => {
+
+        // Update the width of the progress bar with the overall progress value
+        document.getElementById("myBar").style.width = overallProgress + "%";
+    });
+</script>
+<script>
+    const textareaContainer = document.getElementById("textarea-container");
+    const textareas = textareaContainer.getElementsByTagName("textarea");
+    const checkboxes = textareaContainer.querySelectorAll("input[type='checkbox']");
+
+    let formValues = {};
+    let counter = 0; // initialize counter variable
+
     for (let i = 0; i < textareas.length + checkboxes.length; i++) {
-      const id = prefix + (i + 1);
-      const element = document.getElementById(id);
-      if (element) {
-        if (element.tagName === "TEXTAREA") {
-          formValues[id] = element.value;
-        } else if (element.tagName === "INPUT" && element.type === "checkbox") {
-          formValues[id] = element.checked;
+        if (i < textareas.length) {
+            const textarea = textareas[i];
+            const id = prefix + (counter + 1);
+            textarea.id = id;
+            formValues[id] = textarea.value;
+            textarea.addEventListener("input", (event) => {
+                formValues[id] = event.target.value;
+                jsonStorage.setItem("formValues", JSON.stringify(formValues));
+            });
+            counter++; // increment counter variable
+        } else {
+            const checkbox = checkboxes[i - textareas.length];
+            const id = prefix + (counter + 1);
+            checkbox.id = id;
+            formValues[id] = checkbox.checked;
+            checkbox.addEventListener("change", (event) => {
+                formValues[id] = event.target.checked;
+                jsonStorage.setItem("formValues", JSON.stringify(formValues));
+            });
+            counter++; // increment counter variable
         }
-      } else {
-        console.warn(`Element with id "${id}" not found on page`);
-      }
     }
-    localStorage.setItem("formValues", JSON.stringify(formValues));
-    alert("Values updated!");
-  });
-  
-  </script>
+
+    // Wrap in async IIFE to use await
+    (async () => {
+        const savedFormValues = await jsonStorage.getItem("formValues");
+
+        if (savedFormValues) {
+            formValues = JSON.parse(savedFormValues);
+            for (const id in formValues) {
+                if (formValues.hasOwnProperty(id)) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        if (element.tagName === "TEXTAREA") {
+                            element.value = formValues[id];
+                        } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+                            element.checked = formValues[id];
+                        }
+                    } else {
+                        console.warn(`Element with id "${id}" not found on page`);
+                    }
+                }
+            }
+        }
+    })();
+
+    const updateButton = document.getElementById("update-button-all");
+    updateButton.addEventListener("click", async () => {
+        for (let i = 0; i < textareas.length + checkboxes.length; i++) {
+            const id = prefix + (i + 1);
+            const element = document.getElementById(id);
+            if (element) {
+                if (element.tagName === "TEXTAREA") {
+                    formValues[id] = element.value;
+                } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+                    formValues[id] = element.checked;
+                }
+            } else {
+                console.warn(`Element with id "${id}" not found on page`);
+            }
+        }
+        await jsonStorage.setItem("formValues", JSON.stringify(formValues));
+        alert("Values updated!");
+    });
+</script>

@@ -7,25 +7,25 @@
     <title>Ticketing</title>
 </head>
 <body>
-    <!-- HTML elements where you want to render the Trello board -->
-    <div id="board-container"></div>
+<!-- HTML elements where you want to render the Trello board -->
+<div id="board-container"></div>
 
-    <script>
-        // Fetch Trello board data using the Trello API
-        fetch('https://api.trello.com/1/boards/{idBoard}?key={yourKey}&token={yourToken}')
-            .then(response => response.json())
-            .then(data => {
-                // Do something with the fetched data
-                console.log(data);
-                // Render the Trello board inside the specified container
-                const boardContainer = document.getElementById('board-container');
-                boardContainer.innerHTML = data.name; // Replace with your desired rendering logic
-            })
-            .catch(error => {
-                // Handle any errors
-                console.error(error);
-            });
-    </script>
-    <script src="script.js"></script>
+<script>
+    // Fetch Trello board data using the Trello API
+    fetch('https://api.trello.com/1/boards/  {idBoard}?key={yourKey}&token={yourToken}')
+        .then(response => response.json())
+        .then(data => {
+            // Do something with the fetched data
+            console.log(data);
+            // Render the Trello board inside the specified container
+            const boardContainer = document.getElementById('board-container');
+            boardContainer.innerHTML = data.name; // Replace with your desired rendering logic
+        })
+        .catch(error => {
+            // Handle any errors
+            console.error(error);
+        });
+</script>
+<script src="script.js"></script>
 </body>
 </html>

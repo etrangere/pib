@@ -5,256 +5,256 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <script>
-		const prefix = window.location.pathname.replace(/\/{2,}/g, '/');
-		const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
-		const baseUrl = `http://localhost${currentPath}`;
-		//alert(prefix); 
-      </script>
+        const prefix = window.location.pathname.replace(/\/{2,}/g, '/');
+        const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
+        const baseUrl = `http://localhost${currentPath}`;
+        //alert(prefix);
+    </script>
     <title>Project roadmap</title>
 </head>
 
 <body>
 
-    <div>
-        <label for="step2">Step 2 -> select the checkbox to trigger progress bar increment:</label>
+<div>
+    <label for="step2">Step 2 -> select the checkbox to trigger progress bar increment:</label>
     <input type="checkbox" id="step2" name="step2" onchange="updateProgressBar('step2')">
-    </div>
-    <h1>Project roadmap</h1>
+</div>
+<h1>Project roadmap</h1>
 
-    
-    
+
+
 <div class="road_map">
-  <div class="parentro">
-    <div class="divro1"> <h3><img src="./img/calendar.png" > DATE</h3>
-        <p>The release date or timeframe</p></div>
-    <div class="divro2"> <h3><img src="./img/etiquette.png" > NAME</h3>
-        <p>The name of the new release</p></div>
-    <div class="divro3"> <h3><img src="./img/cible.png" > GOAL</h3>
-        <p>The benefit the product
-            should offer</p></div>
-    <div class="divro4"> <h3><img src="./img/star.png" > FEATURES</h3>
-        <p>The high-level features
-            necessary to meet the goal</p></div>
-    <div class="divro5"> <h3><img src="./img/graph.png" > METRICS</h3>
-        <p>The metrics to determine if the
-            goal has been met</p></div>       
-  </div>
-  <div class="divro6">
-    <div id="versions-container"></div>
-  </div>
-  <button id="add" onClick=addNewVersion();>Add Version</button>
+    <div class="parentro">
+        <div class="divro1"> <h3><img src="./img/calendar.png" > DATE</h3>
+            <p>The release date or timeframe</p></div>
+        <div class="divro2"> <h3><img src="./img/etiquette.png" > NAME</h3>
+            <p>The name of the new release</p></div>
+        <div class="divro3"> <h3><img src="./img/cible.png" > GOAL</h3>
+            <p>The benefit the product
+                should offer</p></div>
+        <div class="divro4"> <h3><img src="./img/star.png" > FEATURES</h3>
+            <p>The high-level features
+                necessary to meet the goal</p></div>
+        <div class="divro5"> <h3><img src="./img/graph.png" > METRICS</h3>
+            <p>The metrics to determine if the
+                goal has been met</p></div>
+    </div>
+    <div class="divro6">
+        <div id="versions-container"></div>
+    </div>
+    <button id="add" onClick=addNewVersion();>Add Version</button>
 </div>
 
 </body>
 </html>
 <script>
- 
-  // Define the increment value
-  let incrementValue = 13; // Set the initial value
- //Change value with method selection
-   let methoddev = localStorage.getItem("val");
- 
-     if(methoddev == "Kanban"){
-       incrementValue = 33;
-     }
-  
- 
-   // Function to update the progress bar and save the value
-   function updateProgressBar(stepId) {
-     // Get the step checkbox by its ID
-     const stepCheckbox = document.getElementById(stepId);
- 
-     // Check if the step checkbox element exists
-     if (!stepCheckbox) {
-       console.error("Step checkbox not found!");
-       return;
-     }
- 
-     // Calculate the progress increment
-     const progressIncrement = stepCheckbox.checked ? incrementValue : -incrementValue;
- 
-     // Retrieve the overall progress value from localStorage
-     const savedProgress = localStorage.getItem("progress");
-     let overallProgress = 0;
- 
-     if (savedProgress && !isNaN(savedProgress)) {
-       overallProgress = parseInt(savedProgress, 10);
-     }
- 
-     // Update the overall progress by adding the current progress increment
-     overallProgress += progressIncrement;
- 
-     // Save the overall progress value to localStorage
-     localStorage.setItem("progress", overallProgress.toString());
- 
-     // Save the checked state of the step checkbox to localStorage
-     localStorage.setItem(stepId, stepCheckbox.checked ? "checked" : "unchecked");
- 
-     // Update the width of the progress bar
-     document.getElementById("myBar").style.width = overallProgress + "%";
-   }
- 
-   // Check if progress value exists in localStorage on page load
-   document.addEventListener("DOMContentLoaded", function() {
-     // Retrieve the overall progress value from localStorage
-     const savedProgress = localStorage.getItem("progress");
-     let overallProgress = 0;
- 
-     if (savedProgress && !isNaN(savedProgress)) {
-       overallProgress = parseInt(savedProgress, 10);
-     }
- 
-     // Get the step checkbox by its ID
-     const stepCheckbox = document.getElementById("step2");
- 
-     // Check if the step checkbox element exists
-     if (!stepCheckbox) {
-       console.error("Step checkbox not found!");
-       return;
-     }
- 
-     // Retrieve the checked state of the step checkbox from localStorage
-     const savedCheckboxValue = localStorage.getItem("step2");
-     if (savedCheckboxValue === "checked") {
-       stepCheckbox.checked = true;
-       overallProgress += incrementValue;
-     } else {
-       stepCheckbox.checked = false;
-     }
- 
-     // Update the width of the progress bar with the overall progress value
-     document.getElementById("myBar").style.width = overallProgress + "%";
-   });
- </script>
+
+    // Define the increment value
+    let incrementValue = 13; // Set the initial value
+    //Change value with method selection
+    (async function initializeMethod() {
+        const methoddev = await jsonStorage.getItem("val");
+        if (methoddev === "Kanban") {
+            incrementValue = 33;
+        }
+    })();
+
+
+    // Function to update the progress bar and save the value
+    async function updateProgressBar(stepId) {
+        // Get the step checkbox by its ID
+        const stepCheckbox = document.getElementById(stepId);
+
+        // Check if the step checkbox element exists
+        if (!stepCheckbox) {
+            console.error("Step checkbox not found!");
+            return;
+        }
+
+        // Calculate the progress increment
+        const progressIncrement = stepCheckbox.checked ? incrementValue : -incrementValue;
+
+        // Retrieve the overall progress value from jsonStorage
+        const savedProgress = await jsonStorage.getItem("progress");
+        let overallProgress = 0;
+
+        if (savedProgress && !isNaN(savedProgress)) {
+            overallProgress = parseInt(savedProgress, 10);
+        }
+
+        // Update the overall progress by adding the current progress increment
+        overallProgress += progressIncrement;
+
+        // Save the overall progress value to jsonStorage
+        await jsonStorage.setItem("progress", overallProgress.toString());
+
+        // Save the checked state of the step checkbox to jsonStorage
+        await jsonStorage.setItem(stepId, stepCheckbox.checked ? "checked" : "unchecked");
+
+        // Update the width of the progress bar
+        document.getElementById("myBar").style.width = overallProgress + "%";
+    }
+
+    // Check if progress value exists in jsonStorage on page load
+    document.addEventListener("DOMContentLoaded", async function() {
+        // Retrieve the overall progress value from jsonStorage
+        const savedProgress = await jsonStorage.getItem("progress");
+        let overallProgress = 0;
+
+        if (savedProgress && !isNaN(savedProgress)) {
+            overallProgress = parseInt(savedProgress, 10);
+        }
+
+        // Get the step checkbox by its ID
+        const stepCheckbox = document.getElementById("step2");
+
+        // Check if the step checkbox element exists
+        if (!stepCheckbox) {
+            console.error("Step checkbox not found!");
+            return;
+        }
+
+        // Retrieve the checked state of the step checkbox from jsonStorage
+        const savedCheckboxValue = await jsonStorage.getItem("step2");
+        if (savedCheckboxValue === "checked") {
+            stepCheckbox.checked = true;
+            overallProgress += incrementValue;
+        } else {
+            stepCheckbox.checked = false;
+        }
+
+        // Update the width of the progress bar with the overall progress value
+        document.getElementById("myBar").style.width = overallProgress + "%";
+    });
+</script>
 <script>
-  const versionsContainer = document.getElementById("versions-container");
-  const versions = [];
-  const names = ["DATE", "NAME", "GOAL", "FEATURES", "METRICS"];
+    const versionsContainer = document.getElementById("versions-container");
+    const versions = [];
+    const names = ["DATE", "NAME", "GOAL", "FEATURES", "METRICS"];
 
-  class Version {
-    constructor(versionNumber, versionDate, inputValues, prefix) {
-      this.versionNumber = versionNumber;
-      this.versionDate = versionDate;
-      this.inputValues = inputValues;
-      this.element = this.createDiv(prefix);
-      this.idPrefix = prefix;
+    class Version {
+        constructor(versionNumber, versionDate, inputValues, prefix) {
+            this.versionNumber = versionNumber;
+            this.versionDate = versionDate;
+            this.inputValues = inputValues;
+            this.element = this.createDiv(prefix);
+            this.idPrefix = prefix;
 
-        /* Delete button */
-        const deleteBtn = document.createElement("button");
-              deleteBtn.textContent = "Delete";
-              deleteBtn.addEventListener("click", () => {
+            /* Delete button */
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.addEventListener("click", async () => {
                 // Display confirmation dialog before deleting
                 const confirmation = confirm("Are you sure you want to delete this version?");
                 if (confirmation) {
-                  const index = versions.indexOf(this);
-                  if (index > -1) {
-                    versions.splice(index, 1);
-                    localStorage.setItem(`versions_${prefix}`, JSON.stringify(versions));
-                  }
-                  this.element.remove();
-                  this.removeVersionFromLocalStorage();
+                    const index = versions.indexOf(this);
+                    if (index > -1) {
+                        versions.splice(index, 1);
+                        await jsonStorage.setItem(`versions_${prefix}`, JSON.stringify(versions));
+                    }
+                    this.element.remove();
+                    await this.removeVersionFromLocalStorage();
                 }
-              });
-              this.element.appendChild(deleteBtn);
+            });
+            this.element.appendChild(deleteBtn);
+        }
+
+
+        createDiv() {
+            const div = document.createElement("div");
+            div.classList.add("divro6");
+            const inputContainer = document.createElement("div");
+            inputContainer.classList.add("input-container");
+            for (let i = 0; i < this.inputValues.length; i++) {
+                const inputDiv = document.createElement("div");
+                inputDiv.classList.add("input-div");
+
+                const label = document.createElement("label");
+                const textarea = document.createElement("textarea");
+                textarea.setAttribute("placeholder", `Input ${i + 1}`);
+                textarea.value = this.inputValues[i];
+                textarea.id = `${prefix}-input${i}-${this.versionNumber}`;
+                textarea.style.width="14rem";
+
+                const updateButton = document.createElement("button");
+                updateButton.classList.add("update");
+                updateButton.textContent = "Update";
+                updateButton.style.width="14rem";
+                updateButton.style.height="12rem";
+                updateButton.style.overflow = "hidden";
+                updateButton.style.textOverflow = "ellipsis";
+                updateButton.style.whiteSpace = "wrap";
+                updateButton.style.overflowY = "scroll";
+                updateButton.addEventListener("click", async () => {
+                    this.inputValues[i] = textarea.value;
+                    await jsonStorage.setItem(`version_${prefix}_${this.versionNumber}-input${i}`, textarea.value);
+                    this.printInputs(inputContainer);
+                });
+                inputDiv.appendChild(textarea);
+                inputDiv.appendChild(updateButton);
+                inputDiv.style.border="1px solid";
+                inputDiv.style.width="15rem";
+                inputDiv.style.height="15rem";
+                inputDiv.style.marginTop="0.7rem";
+
+                inputContainer.appendChild(inputDiv);
+                inputContainer.backgroundColor="red";
             }
-    
+            div.appendChild(inputContainer);
+            return div;
+        }
 
-    createDiv() {
-      const div = document.createElement("div");
-      div.classList.add("divro6");
-      /* div.innerHTML = `
-        <h3>Version ${this.versionNumber}</h3>
-        <p>Date: ${this.versionDate}</p>
-      `; */
-      const inputContainer = document.createElement("div");
-      inputContainer.classList.add("input-container");
-      for (let i = 0; i < this.inputValues.length; i++) {
-        const inputDiv = document.createElement("div");
-        inputDiv.classList.add("input-div");
-        
-        const label = document.createElement("label");
-       // label.textContent = `${names[i]}:`;
-        const textarea = document.createElement("textarea");
-        textarea.setAttribute("placeholder", `Input ${i + 1}`);
-        textarea.value = this.inputValues[i];
-        textarea.id = `${prefix}-input${i}-${this.versionNumber}`;
-        textarea.style.width="14rem";
-      
-        const updateButton = document.createElement("button");
-        updateButton.classList.add("update");
-        updateButton.textContent = "Update";
-        updateButton.style.width="14rem";
-        updateButton.style.height="12rem";
-        updateButton.style.overflow = "hidden";
-        updateButton.style.textOverflow = "ellipsis";
-        updateButton.style.whiteSpace = "wrap";
-        updateButton.style.overflowY = "scroll";
-        updateButton.addEventListener("click", () => {
-          this.inputValues[i] = textarea.value;
-          localStorage.setItem(`version_${prefix}_${this.versionNumber}-input${i}`, textarea.value);
-          this.printInputs(inputContainer);
-        });
-       // inputDiv.appendChild(label);
-        inputDiv.appendChild(textarea);
-        inputDiv.appendChild(updateButton);
-        /* inputDiv.style.backgroundColor="red"; */
-        inputDiv.style.border="1px solid";
-        inputDiv.style.width="15rem";
-        inputDiv.style.height="15rem";
-        inputDiv.style.marginTop="0.7rem";
+        async printInputs(container) {
+            const textareas = container.querySelectorAll("textarea");
+            for (let i = 0; i < textareas.length; i++) {
+                const textarea = textareas[i];
+                const inputValue = await jsonStorage.getItem(`version_${prefix}_${this.versionNumber}-input${i}`) || "";
+                textarea.value = inputValue;
+                textarea.id = `${prefix}-input${i}-${this.versionNumber}`;
+                const updateButton = textarea.nextElementSibling;
+                if (updateButton) {
+                    updateButton.innerHTML = "Value: ";
+                    const valueElement = document.createElement("span");
+                    valueElement.classList.add("value");
+                    valueElement.textContent = inputValue;
+                    updateButton.appendChild(valueElement);
+                }
+            }
+        }
 
-        inputContainer.appendChild(inputDiv);
-        inputContainer.backgroundColor="red";
-      }
-      div.appendChild(inputContainer);
-      return div;
+        async removeVersionFromLocalStorage() {
+            for (let i = 0; i < names.length; i++) {
+                await jsonStorage.removeItem(`version_${prefix}_${this.versionNumber}-input${i}`);
+            }
+        }
     }
 
-    printInputs(container) {
-  container.querySelectorAll("textarea").forEach((textarea, i) => {
-    const inputValue = localStorage.getItem(`version_${prefix}_${this.versionNumber}-input${i}`) || "";
-    textarea.value = inputValue;
-    textarea.id = `${prefix}-input${i}-${this.versionNumber}`; // Update the ID to include the version number
-    const valueElement = document.createElement("span");
-    valueElement.classList.add("value");
-    valueElement.textContent = inputValue;
-    textarea.nextElementSibling.innerHTML = "Value: ";
-    textarea.nextElementSibling.appendChild(valueElement);
-  });
-}
-
-    removeVersionFromLocalStorage() {
-      for (let i = 0; i < names.length; i++) {
-        localStorage.removeItem(`version_${prefix}_${this.versionNumber}-input${i}`);
-      }
+    async function loadDataFromLocalStorage() {
+        const versionsData = JSON.parse(await jsonStorage.getItem(`versions_${prefix}`)) || [];
+        for (const versionData of versionsData) {
+            const versionNumber = versionData.versionNumber;
+            const versionDate = versionData.versionDate;
+            const inputValues = versionData.inputValues;
+            const version = new Version(versionNumber, versionDate, inputValues, prefix);
+            versions.push(version);
+            versionsContainer.appendChild(version.element);
+            await version.printInputs(version.element.querySelector(".input-container"));
+        }
     }
-  }
 
-  function loadDataFromLocalStorage() {
-    const versionsData = JSON.parse(localStorage.getItem(`versions_${prefix}`)) || [];
-    versionsData.forEach((versionData) => {
-      const versionNumber = versionData.versionNumber;
-      const versionDate = versionData.versionDate;
-      const inputValues = versionData.inputValues;
-      const version = new Version(versionNumber, versionDate, inputValues, prefix);
-      versions.push(version);
-      versionsContainer.appendChild(version.element);
-      version.printInputs(version.element.querySelector(".input-container"));
+    async function addNewVersion() {
+        const versionNumber = versions.filter((v) => v.idPrefix === prefix).length + 1;
+        const versionDate = new Date().toLocaleDateString();
+        const inputValues = ["", "", "", "", ""];
+        const version = new Version(versionNumber, versionDate, inputValues, prefix);
+        versions.push(version);
+        versionsContainer.appendChild(version.element);
+        await jsonStorage.setItem(`versions_${prefix}`, JSON.stringify(versions.filter((v) => v.idPrefix === prefix)));
+    }
+
+    document.addEventListener("DOMContentLoaded", async function () {
+        await loadDataFromLocalStorage();
     });
-  }
-
-  function addNewVersion() {
-    const versionNumber = versions.filter((v) => v.idPrefix === prefix).length + 1;
-    const versionDate = new Date().toLocaleDateString();
-    const inputValues = ["", "", "", "", ""];
-    const version = new Version(versionNumber, versionDate, inputValues, prefix);
-    versions.push(version);
-    versionsContainer.appendChild(version.element);
-    localStorage.setItem(`versions_${prefix}`, JSON.stringify(versions.filter((v) => v.idPrefix === prefix)));
-  }
-
-  window.onload = function () {
-    loadDataFromLocalStorage();
-  };
 </script>

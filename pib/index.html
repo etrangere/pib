@@ -5,7 +5,7 @@
 <header>
 	<title>PIB</title>
 	<link rel="stylesheet" href="style.css">
-    <script>
+	<script>
 		const prefixraw = window.location.pathname;
 		const prefix = prefixraw.slice(0, -1);
 		const currentPath = window.location.pathname;
@@ -20,15 +20,8 @@
 	<!--create button set static-->
 	<div id="button-container-etape" class="button-container-for-etape">
 		<div  class="logo_div" ><a href=baseUrl+"/home.html" id="btnlogo" target="right"><img  src="./img/logo.png"></a></div>
-		<div class="methodflag">
-			<script>
-				if(localStorage.getItem("val")==null){
-					document.write("Method");
-				}else{
-					document.write(localStorage.getItem("val"));
-				}
-			</script>
-		</div>
+		<div class="methodflag"><span id="methodLabel">Loading...</span></div>
+
 	</div>
 
 
@@ -41,134 +34,134 @@
 
 
 
-	<!--progressbar-->
-	<div class="progress-container">
-		<div class="progress-bar" id="myBar"></div>
-	</div>
+<!--progressbar-->
+<div class="progress-container">
+	<div class="progress-bar" id="myBar"></div>
+</div>
 
 
-	<div class="dropdown">
+<div class="dropdown">
 
-		<!--create button with name and url-->
-		<div id="button-container"></div>
+	<!--create button with name and url-->
+	<div id="button-container"></div>
 
-		<!-- The Modal -->
-		<div id="myModal" class="modal">
-			<!-- Modal content -->
-			<div class="modal-content">
-				<span class="close">&times;</span>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
 
 
 
-				<!--create button with name and url-->
+			<!--create button with name and url-->
 			<h1>Add etape buttons set acording to the method</h1>
 
-			    <form>
-					<select id="method" name="method">
-						<option value="Scrum">Scrum</option>
-						<option value="Kanban">Kanban</option>
-					</select><br>
-					<input type="button" id="btnselect" value="Create Button Set" onclick="handleClick()">
-				</form>
-				<div id="button-container-etape"></div>
-				<div class="remove-container-etape" id="remove-container-etape"></div>
+			<form>
+				<select id="method" name="method">
+					<option value="Scrum">Scrum</option>
+					<option value="Kanban">Kanban</option>
+				</select><br>
+				<input type="button" id="btnselect" value="Create Button Set" onclick="handleClick()">
+			</form>
+			<div id="button-container-etape"></div>
+			<div class="remove-container-etape" id="remove-container-etape"></div>
 
-                <hr>
-            <h1>Add resource button</h1>
-				<form>
-					<label for="url">URL:</label>
-					<input type="text" id="url" name="url"><br>
-					<label for="text">Button Text:</label>
-					<input type="text" id="text" name="text" maxlength="26"><br>
-					<label for="color">Select color by theme:</label>
-					<select id="color" name="color">
+			<hr>
+			<h1>Add resource button</h1>
+			<form>
+				<label for="url">URL:</label>
+				<input type="text" id="url" name="url"><br>
+				<label for="text">Button Text:</label>
+				<input type="text" id="text" name="text" maxlength="26"><br>
+				<label for="color">Select color by theme:</label>
+				<select id="color" name="color">
 
-						<option value="#555555">C++</option>
-						<option value="red">Java</option>
-						<option value="#178600">C#</option>
-						<option value="#F05138">Swift</option>
-						<option value="#dea584">Rust</option>
-						<option value="#701516">Ruby</option>
-						<option value="#4F5D95">PHP</option>
-						<option value="#adb2cb">VHDL</option>
-						<option value="#f1e05a">JavaScript</option>
-						<option value="#e34c26">HTML</option>
-						<option value="#00008B">ORM/DB</option>
-						<option value="#3572A5">Python</option>
-						<option value="#e38c00">SQL</option>
-						<option value="#0060ac">XML</option>
-						<option value="#B8860B">N/A</option>
-						<option value="#183A1D">Default</option>
-					</select>
-					<label for="target">Target:</label>
-					<select id="target" name="target">
-						<option value="left">Left Window</option>
-						<option value="right">Right Window</option>
-					</select><br>
-					<input type="button" id="create" value="Create Resource Button" onclick="createButton()">
-				</form>
-				<div id="button-container"></div>
-				<div class="remove-container" id="remove-container"></div>
-				<hr>
-				<h1>Add Trello account</h1>
-				<label for="urlapi">URL of public board/URL+key+token:</label>
-				<input type="text" id="urlapi"><br>
-				<input type="button" id="btnselectapi" value="Create API and apply to Ticketing button" onclick="handleClickAPI()">
-				<hr>
+					<option value="#555555">C++</option>
+					<option value="red">Java</option>
+					<option value="#178600">C#</option>
+					<option value="#F05138">Swift</option>
+					<option value="#dea584">Rust</option>
+					<option value="#701516">Ruby</option>
+					<option value="#4F5D95">PHP</option>
+					<option value="#adb2cb">VHDL</option>
+					<option value="#f1e05a">JavaScript</option>
+					<option value="#e34c26">HTML</option>
+					<option value="#00008B">ORM/DB</option>
+					<option value="#3572A5">Python</option>
+					<option value="#e38c00">SQL</option>
+					<option value="#0060ac">XML</option>
+					<option value="#B8860B">N/A</option>
+					<option value="#183A1D">Default</option>
+				</select>
+				<label for="target">Target:</label>
+				<select id="target" name="target">
+					<option value="left">Left Window</option>
+					<option value="right">Right Window</option>
+				</select><br>
+				<input type="button" id="create" value="Create Resource Button" onclick="createButton()">
+			</form>
+			<div id="button-container"></div>
+			<div class="remove-container" id="remove-container"></div>
+			<hr>
+			<h1>Add Trello account</h1>
+			<label for="urlapi">URL of public board/URL+key+token:</label>
+			<input type="text" id="urlapi"><br>
+			<input type="button" id="btnselectapi" value="Create API and apply to Ticketing button" onclick="handleClickAPI()">
+			<hr>
 
-				<h1>Backup/Restore</h1>
-				<p>
-				   <button id="backup-button">Backup Local Storage</button>
-				</p>
+			<h1>Backup/Restore</h1>
+			<p>
+				<button id="backup-button">Backup Local Storage</button>
+			</p>
 
-			   <p>
-				   <label for="restore-input">Restore Local Storage:</label>
-				   <input type="file" id="restore-input">
-			   </p>
-				<hr>
-				<div>
+			<p>
+				<label for="restore-input">Restore Local Storage:</label>
+				<input type="file" id="restore-input">
+			</p>
+			<hr>
+			<div>
 
-					<h1>Embedded Server (if x-frame problem)</h1>
+				<h1>Embedded Server (if x-frame problem)</h1>
 
-					<button onclick="startServer()">Start Server</button>
-					<button onclick="stopServer()">Stop Server</button>
+				<button onclick="startServer()">Start Server</button>
+				<button onclick="stopServer()">Stop Server</button>
 
-					<p><strong>System Requirements:</strong></p>
+				<p><strong>System Requirements:</strong></p>
+				<ul>
+					<li><strong>PHP:</strong> Version 8.1.32 or higher</li>
+				</ul>
+				<div id="server-status" style="margin-top: 10px; padding: 10px; border: 1px solid #ccc; display: none;"></div>
+				<div style="margin-bottom: 20px; padding: 15px; background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px;">
+
+					<p><strong>Before using the buttons below, please ensure one of the following:</strong></p>
 					<ul>
-						<li><strong>PHP:</strong> Version 8.1.32 or higher</li>
+						<li><strong>Option 1 (Recommended for development):</strong> Run the Node.js server manually in each pib folder terminal:</li>
+						<li style="margin-left: 20px; font-family: monospace; background-color: #f8f9fa; padding: 5px;">cd /path/to/your/pib/folder && node start_pib_node.js</li>
+						<li><strong>Option 2 (For production):</strong> Configure sudo permissions for automatic start/stop:</li>
+						<li style="margin-left: 20px; font-family: monospace; background-color: #f8f9fa; padding: 5px;">sudo visudo  Add: www-data ALL=(ALL) NOPASSWD: /usr/local/bin/manage-pib-server</li>
 					</ul>
-					<div id="server-status" style="margin-top: 10px; padding: 10px; border: 1px solid #ccc; display: none;"></div>
-					<div style="margin-bottom: 20px; padding: 15px; background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 5px;">
 
-						<p><strong>Before using the buttons below, please ensure one of the following:</strong></p>
+					<h4>X-Frame Issues</h4>
+					<p><strong>If you see "X-Frame-Options deny" errors:</strong></p>
+					<ul>
+						<li>This server serves files only from the current project folder (local security)</li>
+						<li><strong>Solution 1:</strong> Use manual server start (Option 1 above) for better control</li>
+						<li><strong>Solution 2:</strong> Install browser extensions to bypass X-Frame restrictions:</li>
 						<ul>
-							<li><strong>Option 1 (Recommended for development):</strong> Run the Node.js server manually in each pib folder terminal:</li>
-							<li style="margin-left: 20px; font-family: monospace; background-color: #f8f9fa; padding: 5px;">cd /path/to/your/pib/folder && node start_pib_node.js</li>
-							<li><strong>Option 2 (For production):</strong> Configure sudo permissions for automatic start/stop:</li>
-							<li style="margin-left: 20px; font-family: monospace; background-color: #f8f9fa; padding: 5px;">sudo visudo  Add: www-data ALL=(ALL) NOPASSWD: /usr/local/bin/manage-pib-server</li>
+							<li><strong>Chrome:</strong> "Ignore X-Frame headers" extension</li>
+							<li><strong>Firefox:</strong> "Ignore X-Frame-Options Header" extension</li>
+							<li><strong>Edge:</strong> "X-Frame-Bypass" extension</li>
 						</ul>
+						<li><strong>Development tip:</strong> Use direct file URLs in new tabs for testing</li>
+					</ul>
 
-						<h4>X-Frame Issues</h4>
-						<p><strong>If you see "X-Frame-Options deny" errors:</strong></p>
-						<ul>
-							<li>This server serves files only from the current project folder (local security)</li>
-							<li><strong>Solution 1:</strong> Use manual server start (Option 1 above) for better control</li>
-							<li><strong>Solution 2:</strong> Install browser extensions to bypass X-Frame restrictions:</li>
-							<ul>
-								<li><strong>Chrome:</strong> "Ignore X-Frame headers" extension</li>
-								<li><strong>Firefox:</strong> "Ignore X-Frame-Options Header" extension</li>
-								<li><strong>Edge:</strong> "X-Frame-Bypass" extension</li>
-							</ul>
-							<li><strong>Development tip:</strong> Use direct file URLs in new tabs for testing</li>
-						</ul>
-
-						<p><strong>Security Note:</strong> Never give full sudo access to www-data on production servers!</p>
-					</div>
+					<p><strong>Security Note:</strong> Never give full sudo access to www-data on production servers!</p>
 				</div>
-
 			</div>
+
 		</div>
 	</div>
+</div>
 
 
 <div id="separatorContainer" class="separatorContainer">
@@ -188,24 +181,32 @@
 </div>
 
 </body>
-	</html>
-	<script>
-		// Function to update the progress bar
-		function updateProgressBar(progress) {
-		  document.getElementById("myBar").style.width = progress + "%";
-		}
+</html>
+<script>
+	// Function to update the progress bar
+	function updateProgressBar(progress) {
+		document.getElementById("myBar").style.width = progress + "%";
+	}
 
-		// Retrieve the progress value from localStorage
-		const savedProgress = localStorage.getItem("progress");
+	// Run logic after DOM is fully loaded
+	window.addEventListener("DOMContentLoaded", async () => {
 		let overallProgress = 0;
 
-		if (savedProgress && !isNaN(savedProgress)) {
-		  overallProgress = parseInt(savedProgress, 10);
+		try {
+			const savedProgress = await jsonStorage.getItem("progress");
+
+			if (savedProgress && !isNaN(savedProgress)) {
+				overallProgress = parseInt(savedProgress, 10);
+			}
+		} catch (err) {
+			console.error("Failed to load progress from storage:", err);
 		}
 
 		// Update the progress bar on page load
 		updateProgressBar(overallProgress);
-	</script>
+	});
+</script>
+
 
 <script>
 	const statusDiv = document.getElementById('server-status');
@@ -250,8 +251,19 @@
 	// Initial status on page load
 	updateStatus();
 </script>
+<script>
+	window.addEventListener("DOMContentLoaded", async () => {
+		try {
+			const val = await jsonStorage.getItem("val");
+			document.getElementById("methodLabel").textContent = val || "Method";
+		} catch (err) {
+			console.error("Error loading method label:", err);
+			document.getElementById("methodLabel").textContent = "Method";
+		}
+	});
+</script>
 
 
 <script src="script.js"></script>
-	<script src="local_storage_back_restore.js"></script>
+<script src="local_storage_back_restore.js"></script>
 
