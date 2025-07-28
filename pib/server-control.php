@@ -5,6 +5,8 @@ $port_file = __DIR__ . '/.pib-port';
 $host = '127.0.0.1';
 $default_port = 8088;
 $port = $default_port;
+$max_port = 9050;
+
 
 function isPortFree($port) {
     $connection = @fsockopen('127.0.0.1', $port);
@@ -25,12 +27,38 @@ function isPhpServerRunning($pid, $port) {
 }
 
 // Load saved port if exists
+$max_port = 9050;
+
+// Load saved port or find a new one
 if (file_exists($port_file)) {
     $saved_port = intval(trim(file_get_contents($port_file)));
     if ($saved_port > 0) {
         $port = $saved_port;
     }
+} else {
+    // .pib-port does not exist
+    if (isPortFree($default_port)) {
+        $port = $default_port;
+    } else {
+        // Search for next free port from default + 1 to max_port
+        for ($try = $default_port + 1; $try <= $max_port; $try++) {
+            if (isPortFree($try)) {
+                $port = $try;
+                break;
+            }
+        }
+
+        // If no free port found
+        if (!isset($port)) {
+            echo "❌ No free ports found from $default_port to $max_port\n";
+            exit(1);
+        }
+    }
+
+    // Save new port to .pib-port
+    file_put_contents($port_file, $port);
 }
+
 
 if ($_GET['cmd'] === 'start') {
     // Check if server already running
