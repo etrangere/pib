@@ -6,13 +6,36 @@
 	<title>PIB</title>
 	<link rel="stylesheet" href="style.css">
 	<script>
-		const prefix = window.location.pathname.replace(/\/{2,}/g, '/').replace('.html', '');
-		const currentPath = window.location.pathname.replace(/\/{2,}/g, '/');
-		const port = window.location.port;
-		// 'prefix' ici au lieu de 'currentPath'
-		const baseUrl = `http://localhost:${port}${prefix}`;
-		//alert(baseUrl);
+		// --- We'll set these globally ---
+		window.prefix = null;
+		window.baseUrl = null;
+
+		// --- Step 1: Normalize path and compute prefix (same as before) ---
+		const pathname = window.location.pathname.replace(/\/{2,}/g, '/');
+		window.prefix = pathname.replace('.html', '');
+
+		// --- Step 2: Fetch real server port ---
+		fetch('./server-control.php?cmd=status')
+				.then(response => {
+					if (!response.ok) throw new Error('Network error: ' + response.status);
+					return response.json();
+				})
+				.then(data => {
+					// Use real port from PHP
+					const port = data.port || 8088;
+
+					// Build baseUrl with real port + original prefix logic
+					window.baseUrl = `http://localhost:${port}${window.prefix}`;
+
+					// Debug
+					console.log('prefix:', window.prefix);
+					console.log('Port:', port);
+					console.log('Base URL:', window.baseUrl);
+				})
+				.catch(err => {
+				});
 	</script>
+
 </header>
 <body>
 
@@ -263,22 +286,7 @@
 		}
 	});
 </script>
-<script>
-	// Nettoyer le chemin de l'URL courante et retirer '.html' pour obtenir le préfixe du répertoire
-	const prefixraw1 = window.location.pathname.replace(/\/{2,}/g, '/');
-	const prefix1 = prefixraw1.endsWith('.html') ? prefixraw1.slice(0, -5) : prefixraw1;
 
-	// Utiliser window.location.origin pour inclure protocole, hostname et port
-	// Puis concaténer avec le prefix pour obtenir l'URL de base.
-	const baseUrl1 = `${window.location.origin}${prefix1}`;
-
-	// --- Pour le débogage ---
-	// Affiche les valeurs dans la console du navigateur
-	console.log("prefix:", prefix1);
-	console.log("window.location.origin:", window.location.origin);
-	console.log("Constructed baseUrl:", baseUrl1);
-	// ------------------------
-</script>
 
 <script src="script.js"></script>
 <script src="local_storage_back_restore.js"></script>

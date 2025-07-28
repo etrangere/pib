@@ -1,4 +1,5 @@
 <?php
+
 header('Content-Type: text/plain');
 $pid_file = __DIR__ . '/server.pid';
 $port_file = __DIR__ . '/.pib-port';
@@ -136,3 +137,4 @@ if ($_GET['cmd'] === 'start') {
 } else {
     echo "Invalid command. Use ?cmd=start, ?cmd=stop or ?cmd=status\n";
 }
+
