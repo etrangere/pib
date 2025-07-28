@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <header>
-	<title>PIB</title>
+
 	<link rel="stylesheet" href="style.css">
 	<script>
 		// --- We'll set these globally ---
@@ -34,6 +34,18 @@
 				})
 				.catch(err => {
 				});
+	</script>
+	<script>
+		// Clean up the path
+		const cleanPath = window.location.pathname.replace(/\/{2,}/g, '/');
+
+		// Extract project name (e.g. from /myproject/pib/developpment.html → "myproject")
+		const segments = cleanPath.split('/').filter(s => s);
+		const pibIndex = segments.indexOf('pib');
+		const projectName = pibIndex > 0 ? segments[pibIndex - 1] : segments[0] || 'PIB';
+
+		// Set the title
+		document.title = `${projectName}_pib`;
 	</script>
 
 </header>
