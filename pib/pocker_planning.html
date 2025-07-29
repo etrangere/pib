@@ -143,9 +143,10 @@
             const id = prefix + (counter + 1);
             textarea.id = id;
             formValues[id] = textarea.value;
-            textarea.addEventListener("input", (event) => {
+            // Make the listener async and use jsonStorage
+            textarea.addEventListener("input", async (event) => { // <-- async
                 formValues[id] = event.target.value;
-                localStorage.setItem("formValues", JSON.stringify(formValues));
+                await jsonStorage.setItem("formValues", JSON.stringify(formValues)); // <-- await jsonStorage
             });
             counter++; // increment counter variable
         } else {
@@ -153,9 +154,10 @@
             const id = prefix + (counter + 1);
             checkbox.id = id;
             formValues[id] = checkbox.checked;
-            checkbox.addEventListener("change", (event) => {
+            // Make the listener async and use jsonStorage
+            checkbox.addEventListener("change", async (event) => { // <-- async
                 formValues[id] = event.target.checked;
-                localStorage.setItem("formValues", JSON.stringify(formValues));
+                await jsonStorage.setItem("formValues", JSON.stringify(formValues)); // <-- await jsonStorage
             });
             counter++; // increment counter variable
         }
@@ -185,23 +187,27 @@
     })();
 
     const updateButton = document.getElementById("update-button-all");
-    updateButton.addEventListener("click", async () => {
-        for (let i = 0; i < textareas.length + checkboxes.length; i++) {
-            const id = prefix + (i + 1);
-            const element = document.getElementById(id);
-            if (element) {
-                if (element.tagName === "TEXTAREA") {
-                    formValues[id] = element.value;
-                } else if (element.tagName === "INPUT" && element.type === "checkbox") {
-                    formValues[id] = element.checked;
+    // Ensure updateButton exists before adding listener
+    if (updateButton) {
+        updateButton.addEventListener("click", async () => {
+            for (let i = 0; i < textareas.length + checkboxes.length; i++) {
+                const id = prefix + (i + 1);
+                const element = document.getElementById(id);
+                if (element) {
+                    if (element.tagName === "TEXTAREA") {
+                        formValues[id] = element.value;
+                    } else if (element.tagName === "INPUT" && element.type === "checkbox") {
+                        formValues[id] = element.checked;
+                    }
+                } else {
+                    console.warn(`Element with id "${id}" not found on page`);
                 }
-            } else {
-                console.warn(`Element with id "${id}" not found on page`);
             }
-        }
-        // Step 9: Use jsonStorage instead of localStorage
-        await jsonStorage.setItem("formValues", JSON.stringify(formValues));
-        alert("Values updated!");
-    });
-
+            // Step 9: Use jsonStorage
+            await jsonStorage.setItem("formValues", JSON.stringify(formValues));
+            alert("Values updated!");
+        });
+    } else {
+        console.warn("Update button with id 'update-button-all' not found.");
+    }
 </script>

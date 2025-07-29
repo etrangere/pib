@@ -179,7 +179,7 @@
                         await jsonStorage.setItem(`versions_${prefix}`, JSON.stringify(versions));
                     }
                     this.element.remove();
-                    await this.removeVersionFromLocalStorage();
+                    await this.removeVersionFromJsonStorage();
                 }
             });
             this.element.appendChild(deleteBtn);
@@ -248,14 +248,14 @@
             }
         }
 
-        async removeVersionFromLocalStorage() {
+        async removeVersionFromJsonStorage() {
             for (let i = 0; i < names.length; i++) {
                 await jsonStorage.removeItem(`version_${prefix}_${this.versionNumber}-input${i}`);
             }
         }
     }
 
-    async function loadDataFromLocalStorage() {
+    async function loadDataFromJsonStorage() {
         const versionsData = JSON.parse(await jsonStorage.getItem(`versions_${prefix}`)) || [];
         for (const versionData of versionsData) {
             const versionNumber = versionData.versionNumber;
@@ -279,6 +279,6 @@
     }
 
     document.addEventListener("DOMContentLoaded", async function () {
-        await loadDataFromLocalStorage();
+        await loadDataFromJsonStorage();
     });
 </script>

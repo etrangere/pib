@@ -1,8 +1,7 @@
 
-[28-Jul-2025 23:18:45 Europe/Berlin] Server root: /var/www
-[28-Jul-2025 23:18:45 Europe/Berlin] Router location: /var/www/69.pib/pib
-[28-Jul-2025 23:18:45 Europe/Berlin] Requested URI: /69.pib/pib/json-storage.php
-[28-Jul-2025 23:18:45 Europe/Berlin] Relative path: 69.pib/pib/json-storage.php
-[28-Jul-2025 23:18:45 Europe/Berlin] Resolved path: /var/www/69.pib/pib/json-storage.php
-[28-Jul-2025 23:18:45 Europe/Berlin] Server root: /var/www
-[28-Jul-2025 23:18:45 Europe/Berlin] Router location: /var/www/69.pib/pib
+[29-Jul-2025 14:37:12 Europe/Berlin] Path in json-storage: /var/www/69.pib/pib/db.json
+[29-Jul-2025 14:37:16 Europe/Berlin] Requested URI: /69.pib/pib/resources/readme.txt
+[29-Jul-2025 14:37:16 Europe/Berlin] Relative path: 69.pib/pib/resources/readme.txt
+[29-Jul-2025 14:37:16 Europe/Berlin] Resolved path: /var/www/69.pib/pib/resources/readme.txt
+[29-Jul-2025 14:37:16 Europe/Berlin] Server root: /var/www
+[29-Jul-2025 14:37:16 Europe/Berlin] Router location: /var/www/69.pib/pib
