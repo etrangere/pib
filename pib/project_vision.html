@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+
     <script>
         // --- We'll set these globally ---
         window.prefix = null;
@@ -326,15 +326,19 @@
     const checkboxes = textareaContainer.querySelectorAll("input[type='checkbox']");
     let formValues = {};
     let counter = 0; // initialize counter variable
+
     for (let i = 0; i < textareas.length + checkboxes.length; i++) {
         if (i < textareas.length) {
             const textarea = textareas[i];
             const id = prefix + (counter + 1);
             textarea.id = id;
             formValues[id] = textarea.value;
-            textarea.addEventListener("input", (event) => {
+            // Rendre la fonction callback async
+            textarea.addEventListener("input", async (event) => { // <-- async
                 formValues[id] = event.target.value;
-                jsonStorage.setItem("formValues", JSON.stringify(formValues));
+                // Utiliser await pour s'assurer que l'opération est terminée
+                await jsonStorage.setItem("formValues", JSON.stringify(formValues)); // <-- await
+                // console.log("Textarea value saved for ID:", id); // Pour le débogage
             });
             counter++; // increment counter variable
         } else {
@@ -342,13 +346,17 @@
             const id = prefix + (counter + 1);
             checkbox.id = id;
             formValues[id] = checkbox.checked;
-            checkbox.addEventListener("change", (event) => {
+            // Rendre la fonction callback async
+            checkbox.addEventListener("change", async (event) => { // <-- async
                 formValues[id] = event.target.checked;
-                jsonStorage.setItem("formValues", JSON.stringify(formValues));
+                // Utiliser await pour s'assurer que l'opération est terminée
+                await jsonStorage.setItem("formValues", JSON.stringify(formValues)); // <-- await
+                // console.log("Checkbox state saved for ID:", id); // Pour le débogage
             });
             counter++; // increment counter variable
         }
     }
+
     // Wrap in async IIFE to use await
     (async () => {
         const savedFormValues = await jsonStorage.getItem("formValues");
@@ -370,6 +378,7 @@
             }
         }
     })();
+
     const updateButton = document.getElementById("update-button-all");
     if (updateButton) {
         updateButton.addEventListener("click", async () => {
@@ -389,5 +398,8 @@
             await jsonStorage.setItem("formValues", JSON.stringify(formValues));
             alert("Values updated!");
         });
+    } else {
+        // console.warn("Update button 'update-button-all' not found.");
     }
 </script>
+<script src="script.js"></script>
