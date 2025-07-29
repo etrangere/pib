@@ -13,9 +13,11 @@ Everything else works exactly as shown.
 
 ⚠️ All inputted information and selected buttons state is stored in db.json file inside PIB folder. 
 
-1. Download PIB and place the pib folder in the root directory of your project. You can have multiple parallel PIB folders — each runs its own server instance on a unique port. 
+1. Download **PIB** and place the `pib` folder in your web project root (e.g., `/var/www/pib/` or `/var/www/project1/pib/`), ensuring your web server (e.g., Apache) is configured to serve files from that location — no special Apache configuration is needed.
+
+   You can have multiple parallel PIB folders — each runs its own server instance on a unique port. 
         
-2. To start PIB, open index.html in the pib folder from your project’s root directory using your preferred browser.
+2. To start PIB, go http://localhost/project1/pib in your prefered browser in the pib folder from your project’s root directory using your preferred browser.
 3. Choose "Configuration" in the top-right corner. Then, in the bottom-left section, find "Embedded Server" and click the "Start Server" button. After the server starts, select one of the available Agile methods. Once selected, the choice is locked.
 4. To add online resources such as URLs, PDFs, text files, CSVs, or other externally hosted files, copy the link and paste it into Configuration > Add Resource.
    Then select the display position (left or right panel), button color, name, and icon.
@@ -84,7 +86,7 @@ Additional Notes:
   - If none of these work, use the Embedded Server of PIB, but this time you need to place all resource files inside the PIB resources folder - it will serve only files inside this folder, not all files from PC, so it's preferable to try extensions to be able to add any file from PC to PIB. Users can add parallel PIB folders with no problem - each folder will automatically start its own instance of the server. Note: Pay attention to permissions - you may need to add sudoers permissions to the user or execute the command manually from the terminal. Check the server section for specific permission requirements.
   
 - All office files must be placed in Google Drive with a shared URL, which can then be added as a "resource" using the resource button.
-- Localhost must be configured with a web server like Apache.(no need in case of Embedded server)
+- Localhost must have a basic or default web server like Apache configured — it will act as the **parent server**, while each embedded PIB server instance runs in a parallel folder, allowing multiple independent PIB instances on the same machine.
 - Prepare the Trello account token and key in one URL and add it in the "Configuration" menu.
 - No additional frameworks or libraries are needed only PHP: Version 8.1.32 or higher.
 - To UPDATE app you need to replace all files except resources folder. 
