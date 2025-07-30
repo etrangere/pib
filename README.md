@@ -16,6 +16,8 @@ Everything else works exactly as shown.
 1. Download **PIB** and place the `pib` folder in your web project root (e.g., `/var/www/pib/` or `/var/www/project1/pib/`), ensuring your web server (e.g., Apache) is configured to serve files from that location — no special Apache configuration is needed.
 
    You can have multiple parallel PIB folders — each runs its own server instance on a unique port. 
+      
+   Set appropriate permissions `sudo chown -R root:root /var/www/project1/pib`  and `sudo chmod -R 755 /var/www/project1/pib`
         
 2. To start PIB, go http://localhost/project1/pib in your prefered browser in the pib folder from your project’s root directory using your preferred browser.
 3. Choose "Configuration" in the top-right corner. Then, in the bottom-left section, find "Embedded Server" and click the "Start Server" button. After the server starts, select one of the available Agile methods. Once selected, the choice is locked.
