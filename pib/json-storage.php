@@ -2,8 +2,16 @@
 ini_set('log_errors', '1');
 ini_set('error_log', __DIR__ . '/php-error.log');
 
+// CORS headers
+header("Access-Control-Allow-Origin: *"); // For development, or restrict it like http://localhost:8088
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
 
-header('Content-Type: application/json');
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
 $path = __DIR__ . '/db.json';
 

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-
+    <script src="jsonStorage.js"></script>
     <script>
         // --- Global variables ---
         window.prefix = null;
@@ -271,6 +271,7 @@
 </body>
 </html>
 <script>
+
     // Define the increment value
     let incrementValue = 13; // Set the initial value
     //Change value with method selection
@@ -358,7 +359,7 @@
                 formValues[id] = event.target.value;
                 // Utiliser await pour s'assurer que l'opération est terminée
                 await jsonStorage.setItem("formValues", JSON.stringify(formValues)); // <-- await
-                // console.log("Textarea value saved for ID:", id); // Pour le débogage
+                 console.log("Textarea value saved for ID:", id); // Pour le débogage
             });
             counter++; // increment counter variable
         } else {
@@ -371,7 +372,7 @@
                 formValues[id] = event.target.checked;
                 // Utiliser await pour s'assurer que l'opération est terminée
                 await jsonStorage.setItem("formValues", JSON.stringify(formValues)); // <-- await
-                // console.log("Checkbox state saved for ID:", id); // Pour le débogage
+                 console.log("Checkbox state saved for ID:", id); // Pour le débogage
             });
             counter++; // increment counter variable
         }
