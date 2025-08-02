@@ -4,37 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="script.js"></script>
     <script>
-        // --- We'll set these globally ---
+        // --- Global variables ---
         window.prefix = null;
         window.baseUrl = null;
 
-        // --- Step 1: Normalize path and compute prefix (same as before) ---
+        // --- Step 1: Normalize path and compute prefix (remove .html) ---
         const pathname = window.location.pathname.replace(/\/{2,}/g, '/');
         window.prefix = pathname.replace('.html', '');
 
-        // --- Step 2: Fetch real server port ---
+        // --- Step 2: Extract project name for title ---
+        const segments = pathname.split('/').filter(s => s);
+        const pibIndex = segments.indexOf('pib');
+        const projectName = pibIndex > 0
+            ? segments[pibIndex - 1]
+            : segments[0] || 'PIB';
+
+        // --- Step 3: Set dynamic page title ---
+        document.title = `${projectName}_pib`;
+
+        // --- Step 4: Fetch real server port ---
         fetch('./server-control.php?cmd=status')
             .then(response => {
                 if (!response.ok) throw new Error('Network error: ' + response.status);
                 return response.json();
             })
             .then(data => {
-                // Use real port from PHP
+                // Use real port from PHP server
                 const port = data.port || 8088;
 
-                // Build baseUrl with real port + original prefix logic
+                // ✅ Build baseUrl with correct protocol + port + prefix
                 window.baseUrl = `http://localhost:${port}${window.prefix}`;
 
-                // Debug
+                // ✅ Debug
+                console.log('Project:', projectName);
                 console.log('prefix:', window.prefix);
                 console.log('Port:', port);
                 console.log('Base URL:', window.baseUrl);
             })
             .catch(err => {
+                // ✅ Fallback if API fails
+
             });
     </script>
+
     <title>Sprint review</title>
 </head>
 
@@ -46,6 +60,11 @@
 <h1>Sprint review</h1>
 <p>The sprint review is one of the Scrum ceremonies that take place within the Scrum agile framework. This meeting takes place at the end of each sprint, in order to review the work accomplished during the past sprint. This is the time to present the software developments made to the product, which are tested and functional. But more than just demonstrating the product, its corrections or its new features, the purpose of this meeting is also to discuss and identify possible improvements. Discover all the characteristics of the sprint review, who participates in it, its progress in stages and how to ensure an efficient organization!
 </p>
+<div id="textarea-container">
+    <p>
+        <textarea   rows="5" cols="110"></textarea>
+    </p>
+</div>
 
 </body>
 </html>
@@ -93,8 +112,10 @@
         // Save the checked state of the step checkbox to jsonStorage
         await jsonStorage.setItem(stepId, stepCheckbox.checked ? "checked" : "unchecked");
 
-        // Update the width of the progress bar
-        document.getElementById("myBar").style.width = overallProgress + "%";
+        const progressBar = document.getElementById("myBar");
+        if (progressBar) {
+            progressBar.style.width = overallProgress + "%";
+        }
     }
 
     // Check if progress value exists in jsonStorage on page load
@@ -125,8 +146,10 @@
             stepCheckbox.checked = false;
         }
 
-        // Update the width of the progress bar with the overall progress value
-        document.getElementById("myBar").style.width = overallProgress + "%";
+        const progressBar = document.getElementById("myBar");
+        if (progressBar) {
+            progressBar.style.width = overallProgress + "%";
+        }
     });
 </script>
 <script>
@@ -211,4 +234,3 @@
         // console.warn("Update button 'update-button-all' not found.");
     }
 </script>
-<script src="script.js"></script>

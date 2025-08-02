@@ -5,35 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        // --- We'll set these globally ---
+        // --- Global variables ---
         window.prefix = null;
         window.baseUrl = null;
 
-        // --- Step 1: Normalize path and compute prefix (same as before) ---
+        // --- Step 1: Normalize path and compute prefix (remove .html) ---
         const pathname = window.location.pathname.replace(/\/{2,}/g, '/');
         window.prefix = pathname.replace('.html', '');
 
-        // --- Step 2: Fetch real server port ---
+        // --- Step 2: Extract project name for title ---
+        const segments = pathname.split('/').filter(s => s);
+        const pibIndex = segments.indexOf('pib');
+        const projectName = pibIndex > 0
+            ? segments[pibIndex - 1]
+            : segments[0] || 'PIB';
+
+        // --- Step 3: Set dynamic page title ---
+        document.title = `${projectName}_pib`;
+
+        // --- Step 4: Fetch real server port ---
         fetch('./server-control.php?cmd=status')
             .then(response => {
                 if (!response.ok) throw new Error('Network error: ' + response.status);
                 return response.json();
             })
             .then(data => {
-                // Use real port from PHP
+                // Use real port from PHP server
                 const port = data.port || 8088;
 
-                // Build baseUrl with real port + original prefix logic
+                // ✅ Build baseUrl with correct protocol + port + prefix
                 window.baseUrl = `http://localhost:${port}${window.prefix}`;
 
-                // Debug
+                // ✅ Debug
+                console.log('Project:', projectName);
                 console.log('prefix:', window.prefix);
                 console.log('Port:', port);
                 console.log('Base URL:', window.baseUrl);
             })
             .catch(err => {
+                // ✅ Fallback if API fails
+
             });
     </script>
+
     <title>Developpement</title>
 </head>
 
@@ -116,7 +130,10 @@
         await jsonStorage.setItem(stepId, isChecked ? "checked" : "unchecked");
 
         // Update the width of the progress bar
-        document.getElementById("myBar").style.width = overallProgress + "%";
+        const progressBar = document.getElementById("myBar");
+        if (progressBar) {
+            progressBar.style.width = overallProgress + "%";
+        }
     }
 
     // Check if progress value exists in jsonStorage on page load
@@ -148,7 +165,10 @@
         }
 
         // Update the width of the progress bar with the overall progress value
-        document.getElementById("myBar").style.width = overallProgress + "%";
+        const progressBar = document.getElementById("myBar");
+        if (progressBar) {
+            progressBar.style.width = overallProgress + "%";
+        }
     });
 </script>
 <script>
