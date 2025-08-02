@@ -5,51 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="common.js"></script>
     <script src="jsonStorage.js"></script>
-    <script>
-        // --- Global variables ---
-        window.prefix = null;
-        window.baseUrl = null;
-
-        // --- Step 1: Normalize path and compute prefix (remove .html) ---
-        const pathname = window.location.pathname.replace(/\/{2,}/g, '/');
-        window.prefix = pathname.replace('.html', '');
-
-        // --- Step 2: Extract project name for title ---
-        const segments = pathname.split('/').filter(s => s);
-        const pibIndex = segments.indexOf('pib');
-        const projectName = pibIndex > 0
-            ? segments[pibIndex - 1]
-            : segments[0] || 'PIB';
-
-        // --- Step 3: Set dynamic page title ---
-        document.title = `${projectName}_pib`;
-
-        // --- Step 4: Fetch real server port ---
-        fetch('./server-control.php?cmd=status')
-            .then(response => {
-                if (!response.ok) throw new Error('Network error: ' + response.status);
-                return response.json();
-            })
-            .then(data => {
-                // Use real port from PHP server
-                const port = data.port || 8088;
-
-                // ✅ Build baseUrl with correct protocol + port + prefix
-                window.baseUrl = `http://localhost:${port}${window.prefix}`;
-
-                // ✅ Debug
-                console.log('Project:', projectName);
-                console.log('prefix:', window.prefix);
-                console.log('Port:', port);
-                console.log('Base URL:', window.baseUrl);
-            })
-            .catch(err => {
-                // ✅ Fallback if API fails
-
-            });
-    </script>
-
     <title>Project roadmap</title>
 </head>
 
@@ -179,12 +136,12 @@
     const names = ["DATE", "NAME", "GOAL", "FEATURES", "METRICS"];
 
     class Version {
-        constructor(versionNumber, versionDate, inputValues, prefix) {
+        constructor(versionNumber, versionDate, inputValues, pathname) {
             this.versionNumber = versionNumber;
             this.versionDate = versionDate;
             this.inputValues = inputValues;
-            this.element = this.createDiv(prefix);
-            this.idPrefix = prefix;
+            this.element = this.createDiv(pathname);
+            this.idPrefix = window.prefix;
 
             /* Delete button */
             const deleteBtn = document.createElement("button");
@@ -196,7 +153,7 @@
                     const index = versions.indexOf(this);
                     if (index > -1) {
                         versions.splice(index, 1);
-                        await jsonStorage.setItem(`versions_${prefix}`, JSON.stringify(versions));
+                        await jsonStorage.setItem(`versions_${pathname}`, JSON.stringify(versions));
                     }
                     this.element.remove();
                     await this.removeVersionFromJsonStorage();
@@ -219,7 +176,7 @@
                 const textarea = document.createElement("textarea");
                 textarea.setAttribute("placeholder", `Input ${i + 1}`);
                 textarea.value = this.inputValues[i];
-                textarea.id = `${prefix}-input${i}-${this.versionNumber}`;
+                textarea.id = `${pathname}-input${i}-${this.versionNumber}`;
                 textarea.style.width="14rem";
 
                 const updateButton = document.createElement("button");
@@ -233,7 +190,7 @@
                 updateButton.style.overflowY = "scroll";
                 updateButton.addEventListener("click", async () => {
                     this.inputValues[i] = textarea.value;
-                    await jsonStorage.setItem(`version_${prefix}_${this.versionNumber}-input${i}`, textarea.value);
+                    await jsonStorage.setItem(`version_${pathname}_${this.versionNumber}-input${i}`, textarea.value);
                     this.printInputs(inputContainer);
                 });
                 inputDiv.appendChild(textarea);
@@ -254,9 +211,9 @@
             const textareas = container.querySelectorAll("textarea");
             for (let i = 0; i < textareas.length; i++) {
                 const textarea = textareas[i];
-                const inputValue = await jsonStorage.getItem(`version_${prefix}_${this.versionNumber}-input${i}`) || "";
+                const inputValue = await jsonStorage.getItem(`version_${pathname}_${this.versionNumber}-input${i}`) || "";
                 textarea.value = inputValue;
-                textarea.id = `${prefix}-input${i}-${this.versionNumber}`;
+                textarea.id = `${pathname}-input${i}-${this.versionNumber}`;
                 const updateButton = textarea.nextElementSibling;
                 if (updateButton) {
                     updateButton.innerHTML = "Value: ";
@@ -270,18 +227,18 @@
 
         async removeVersionFromJsonStorage() {
             for (let i = 0; i < names.length; i++) {
-                await jsonStorage.removeItem(`version_${prefix}_${this.versionNumber}-input${i}`);
+                await jsonStorage.removeItem(`version_${pathname}_${this.versionNumber}-input${i}`);
             }
         }
     }
 
     async function loadDataFromJsonStorage() {
-        const versionsData = JSON.parse(await jsonStorage.getItem(`versions_${prefix}`)) || [];
+        const versionsData = JSON.parse(await jsonStorage.getItem(`versions_${pathname}`)) || [];
         for (const versionData of versionsData) {
             const versionNumber = versionData.versionNumber;
             const versionDate = versionData.versionDate;
             const inputValues = versionData.inputValues;
-            const version = new Version(versionNumber, versionDate, inputValues, prefix);
+            const version = new Version(versionNumber, versionDate, inputValues, pathname);
             versions.push(version);
             versionsContainer.appendChild(version.element);
             await version.printInputs(version.element.querySelector(".input-container"));
@@ -289,13 +246,13 @@
     }
 
     async function addNewVersion() {
-        const versionNumber = versions.filter((v) => v.idPrefix === prefix).length + 1;
+        const versionNumber = versions.filter((v) => v.idPrefix === pathname).length + 1;
         const versionDate = new Date().toLocaleDateString();
         const inputValues = ["", "", "", "", ""];
-        const version = new Version(versionNumber, versionDate, inputValues, prefix);
+        const version = new Version(versionNumber, versionDate, inputValues, pathname);
         versions.push(version);
         versionsContainer.appendChild(version.element);
-        await jsonStorage.setItem(`versions_${prefix}`, JSON.stringify(versions.filter((v) => v.idPrefix === prefix)));
+        await jsonStorage.setItem(`versions_${pathname}`, JSON.stringify(versions.filter((v) => v.idPrefix === pathname)));
     }
 
     document.addEventListener("DOMContentLoaded", async function () {
