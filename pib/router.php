@@ -47,6 +47,7 @@ if (is_file($requestedPath)) {
         'mp4' => 'video/mp4',
         'mp3' => 'audio/mpeg',
         'wav' => 'audio/wav',
+        'xml'  => 'text/xml',
     ];
     header('Content-Type: ' . ($mime_types[$ext] ?? 'application/octet-stream'));
     readfile($requestedPath);

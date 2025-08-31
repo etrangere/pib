@@ -6,7 +6,7 @@
 
 	<link rel="stylesheet" href="style.css">
 	<script src="jsonStorage.js"></script>
-    <script src="common.js"></script>
+	<script src="common.js"></script>
 
 </header>
 <body>
@@ -214,14 +214,33 @@
 	}
 
 	function startServer() {
+		// Start your existing server
 		fetch('./server-control.php?cmd=start')
 				.then(response => response.text())
 				.then(text => {
 					alert(text);
 					updateStatus();
+
+					// Trigger WooCommerce API script after server starts
+					fetch('./woocommerce_api.php')
+							.then(res => res.json())
+							.then(data => {
+								if(data.success){
+									alert(`WooCommerce fetched ${data.orders_processed} orders`);
+								} else {
+									alert(`WooCommerce API error: ${data.error}`);
+								}
+							})
+							.catch(err => {
+								console.error("Fetch failed:", err);
+							});
+
+
+
 				})
 				.catch(() => alert('Failed to start server.'));
 	}
+
 
 	function stopServer() {
 		fetch('./server-control.php?cmd=stop')
