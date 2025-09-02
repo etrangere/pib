@@ -2,6 +2,23 @@
 
 The aim of PIB is to help developers and other specialists in IT to consolidate all project related information in one board, apply and keep track of Agile methods (Scrum and Kanban for the moment), reduce the time they need to search in different folders and online resources for the requested information.
 
+## 🚀 First Release – Work in Progress
+
+Right now, I’m still developing and preparing features for **PIB** and **WooCommerce integration**.
+
+⚠️ **Note**: The code is not yet fully factored/optimized — I didn’t have the time to do a clean refactor at this stage.  
+👉 Refactoring and cleanup will be included in this release before tagging it stable.
+
+### 🔧 Planned Features in this Release
+
+- 📦 Fetch subscription/payment data **per project** directly from WooCommerce.  
+- 📄 Provide structured **XML output per project**, making it easier to track freelancer payments, subscriptions, and recurrent work.  
+- 📊 Allow better **tracking and reporting** from WooCommerce for project-based payments.  
+
+Stay tuned — more details and documentation will follow with the release.
+
+---
+
 ## 🎥 Watch the Demo
 
 ▶️ [View Demo Video (MP4)](https://portfolio.gourgen-khachatrian.fr/img/pib.mp4)
