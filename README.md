@@ -6,6 +6,10 @@ The aim of PIB is to help developers and other specialists in IT to consolidate 
 
 Right now, I’m still developing and preparing features for **PIB** and **WooCommerce integration**.
 
+Feedback & Contributions Welcome
+If you find bugs, want new features, have ideas, or want to help refactor or optimize — please open an issue or submit a pull request.
+Even small fixes (typos, readability, tests) help.
+
 ⚠️ **Note**: The code is not yet fully factored/optimized — I didn’t have the time to do a clean refactor at this stage.  
 👉 Refactoring and cleanup will be included in this release before tagging it stable.
 
